@@ -61,7 +61,7 @@ export function Footer() {
                     </a>
                     <a
                         className={style.icon}
-                        href="https://github.com/CritianRodriguez042502"
+                        href="https://github.com/dev-cristian-rodriguez"
                         target="_blank"
                         rel="noreferrer"
                     >
