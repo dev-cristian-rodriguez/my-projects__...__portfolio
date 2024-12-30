@@ -28,7 +28,7 @@ export function Projects() {
                             </p>
 
                             <a
-                                href="https://github.com/CritianRodriguez042502/BBC-NEWS"
+                                href="https://github.com/dev-cristian-rodriguez/my-projects__...__news-frontend-application"
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -57,7 +57,7 @@ export function Projects() {
                             </p>
 
                             <a
-                                href="https://github.com/CritianRodriguez042502/my-projects__...__rijksmuseum"
+                                href="https://github.com/dev-cristian-rodriguez/my-projects__...__rijksmuseum"
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -87,7 +87,7 @@ export function Projects() {
                             </p>
 
                             <a
-                                href="https://github.com/CritianRodriguez042502/agency_view"
+                                href="https://github.com/dev-cristian-rodriguez/impact-x__...__frontend-react"
                                 target="_blank"
                                 rel="noreferrer"
                             >
@@ -117,7 +117,7 @@ export function Projects() {
                             </p>
 
                             <a
-                                href="https://github.com/CritianRodriguez042502/Calculator"
+                                href="https://github.com/dev-cristian-rodriguez/my-projects__...__calculator"
                                 target="_blank"
                                 rel="noreferrer"
                             >
