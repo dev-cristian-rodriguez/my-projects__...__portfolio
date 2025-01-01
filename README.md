@@ -8,7 +8,7 @@
 -   **React y Redux** : He trabajado extensamente con React y Redux para desarrollar aplicaciones web dinámicas y escalables.
 -   **Python y Django** : Tengo experiencia en la creación de aplicaciones web robustas y seguras utilizando Django, un marco de desarrollo de Python.
 
-## 🧐 Aprendizaje Continuo
+## 🧐🧐🧐 Aprendizaje Continuo
 
 Mi pasión por la tecnología me motiva a aprender constantemente y a estar al tanto de las últimas tendencias en desarrollo web. Estoy comprometido a expandir mis conocimientos y habilidades en las tecnologías que ya domino, así como a explorar nuevas tecnologías y marcos de trabajo para mejorar mis capacidades como desarrollador.
 
