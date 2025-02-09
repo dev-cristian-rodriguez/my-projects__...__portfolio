@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 // Image
-import me from '@/assents/images/about_me/me.png';
+import me2 from '@/assents/images/about_me/me-2.png';
 
 import style from './style_about_me.module.css';
 
@@ -41,7 +41,7 @@ export function AboutMe() {
     return (
         <main id="about_me">
             <section className={style.containerAboutMe}>
-                <img style={apparence} className={style.imgCristian} src={me} alt="img" />
+                <img style={apparence} className={style.imgCristian} src={me2} alt="img" />
 
                 <h1 className={style.name}>
                     <span style={{ color: 'rgb(110,7,243)', marginRight: '-8px' }}>F</span> rontend
