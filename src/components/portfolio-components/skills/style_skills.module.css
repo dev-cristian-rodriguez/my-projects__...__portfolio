@@ -202,6 +202,38 @@
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
+/* Express icon color theme adjustments */
+/* Default: gray for light mode */
+.expressIcon {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) brightness(0) saturate(100%) invert(40%);
+}
+
+/* Dark mode: white EX */
+[data-theme='dark'] .expressIcon {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(0) saturate(100%) invert(100%);
+}
+
+/* Light mode: gray EX */
+[data-theme='light'] .expressIcon {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) brightness(0) saturate(100%) invert(40%);
+}
+
+/* AWS icon color theme adjustments */
+/* Default: gray for light mode */
+.awsIcon {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) brightness(0) saturate(100%) invert(40%);
+}
+
+/* Dark mode: white AWS */
+[data-theme='dark'] .awsIcon {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(0) saturate(100%) invert(100%);
+}
+
+/* Light mode: gray AWS */
+[data-theme='light'] .awsIcon {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) brightness(0) saturate(100%) invert(40%);
+}
+
 .skillName {
     font-family: var(--font-display);
     font-size: 1.125rem;

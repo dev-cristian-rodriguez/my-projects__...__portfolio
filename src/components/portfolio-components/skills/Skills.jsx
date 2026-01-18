@@ -3,32 +3,50 @@ import { motion, useInView } from 'framer-motion';
 import style from './style_skills.module.css';
 
 // Import images
-import html from '@/assents/images/skills/icon-html.png';
-import css from '@/assents/images/skills/icon-css.png';
 import js from '@/assents/images/skills/icon-js.png';
 import react from '@/assents/images/skills/icon-react.png';
-import git from '@/assents/images/skills/icon-git.png';
 import python from '@/assents/images/skills/icon-python.png';
 import django from '@/assents/images/skills/icon-django.jpg';
 import postgresql from '@/assents/images/skills/icon-postgresql.png';
 
 const skillsData = {
     frontend: [
-        { name: 'HTML', icon: html },
-        { name: 'CSS', icon: css },
         { name: 'JavaScript', icon: js },
         { name: 'React', icon: react },
+        {
+            name: 'Vue.js',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
+        },
+        {
+            name: 'Next.js',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+        },
     ],
     backend: [
         { name: 'Python', icon: python },
         { name: 'Django', icon: django },
+        {
+            name: 'Express',
+            icon: 'https://simpleicons.org/icons/express.svg',
+        },
         { name: 'PostgreSQL', icon: postgresql },
     ],
     tools: [
-        { name: 'Git', icon: git },
         {
             name: 'GitHub',
             icon: 'https://cdn.icon-icons.com/icons2/1476/PNG/512/github_101792.png',
+        },
+        {
+            name: 'AWS',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+        },
+        {
+            name: 'Docker',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
+        },
+        {
+            name: 'Linux',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg',
         },
     ],
 };
@@ -36,6 +54,18 @@ const skillsData = {
 const SkillCard = ({ skill, index }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-50px' });
+
+    // Check if this is the Express or AWS icon
+    const isExpressIcon = skill.name === 'Express';
+    const isAWSIcon = skill.name === 'AWS';
+
+    const iconClasses = [
+        style.skillIcon,
+        isExpressIcon ? style.expressIcon : '',
+        isAWSIcon ? style.awsIcon : '',
+    ]
+        .filter(Boolean)
+        .join(' ');
 
     return (
         <motion.div
@@ -47,7 +77,7 @@ const SkillCard = ({ skill, index }) => {
             whileHover={{ y: -5, scale: 1.02 }}
         >
             <div className={style.skillIconContainer}>
-                <img className={style.skillIcon} src={skill.icon} alt={skill.name} />
+                <img className={iconClasses} src={skill.icon} alt={skill.name} />
             </div>
             <h3 className={style.skillName}>{skill.name}</h3>
         </motion.div>

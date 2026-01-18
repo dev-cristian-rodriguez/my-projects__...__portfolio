@@ -71,7 +71,7 @@ export function AboutMe() {
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
                     <h1 className={style.name}>
-                        <span className={style.gradientText}>F</span>rontend and Backend Developer
+                        <span className={style.gradientText}>F</span>ullstack Developer
                     </h1>
 
                     <p className={style.description}>
