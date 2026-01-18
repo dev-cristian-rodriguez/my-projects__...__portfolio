@@ -1,97 +1,253 @@
-@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@700&display=swap');
-
-:root {
-    /* font size */
-    --text-h1: 30px;
-    --text-h2: 23px;
-    --text-p: 17px;
-
-    /* Color of letters*/
-    --text-color-on-primary-background: rgb(20, 28, 58);
-    --text-color-on-secondary-background: #ffffff;
-
-    /* font family titles */
-    --font-family-title: 'Kalam', cursive;
-
-    /* backgrounds */
-    --main-background-color: #f2f2f2;
-    --secondary-background-color: #333333;
-    --tertiary-background-color: #3498db;
-}
-
-/*-----------------------------------*/
-
-.initialContainer {
-    margin: 0px 45px;
-}
-
-.initialContainer h1 {
-    text-align: center;
-    margin-top: 90px;
-    margin-bottom: 40px;
-    font-size: var(--text-h1);
-    color: rgb(20, 28, 58);
-}
-
-.workExperienceContainer {
+.workExperienceSection {
+    min-height: 80vh;
+    padding: 6rem 0;
+    background: var(--bg-primary);
     position: relative;
-    justify-content: space-between;
-    padding-top: 1px;
-    padding-bottom: 45px;
-    padding-left: 30px;
-    border-left: 2px solid gray;
+    overflow: hidden;
 }
 
-.workExperienceContainer div[role='job'] {
-    width: 85%;
-}
-
-.workExperienceContainer div[role='job'] h3 {
-    font-size: 22px;
-    margin: 0px;
-}
-
-.workExperienceContainer div[role='job'] h4 {
-    font-size: 15px;
-    font-style: italic;
-    margin: 0px;
-}
-
-.workExperienceContainer div[role='job'] p {
-    font-size: 14px;
-    margin: 3px 0px;
-}
-
-.workExperienceContainer div[role='description'] p {
-    font-size: 15px;
-}
-
-.workExperienceContainer .circule {
-    display: block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: rgb(110, 7, 243);
+.workExperienceSection::before {
+    content: '';
     position: absolute;
-    top: 15px;
-    left: -7.5px;
-    z-index: 1;
+    top: 50%;
+    left: -10%;
+    width: 400px;
+    height: 400px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    opacity: 0.08;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
 }
 
-@media screen and (min-width: 1400px) {
-    .initialContainer {
-        margin: 0px 170px;
+@keyframes float {
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    50% {
+        transform: translate(30px, -30px) rotate(180deg);
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+}
+
+.iconWrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    box-shadow: var(--shadow-md);
+}
+
+.timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.timelineItem {
+    position: relative;
+    padding-left: 4rem;
+    padding-bottom: 3rem;
+}
+
+.timelineMarker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.markerDot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    border: 4px solid var(--bg-primary);
+    box-shadow:
+        0 0 0 4px var(--accent-primary),
+        0 0 20px rgba(110, 7, 243, 0.5);
+    z-index: 2;
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 4px var(--accent-primary),
+            0 0 20px rgba(110, 7, 243, 0.5);
+    }
+    50% {
+        box-shadow:
+            0 0 0 8px var(--accent-primary),
+            0 0 30px rgba(110, 7, 243, 0.8);
+    }
+}
+
+.markerLine {
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: calc(100% - 16px);
+    background: var(--gradient-primary);
+    opacity: 0.3;
+}
+
+.timelineItem:last-child .markerLine {
+    display: none;
+}
+
+.timelineContent {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.timelineContent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--gradient-primary);
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.timelineContent:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-primary);
+    transform: translateX(10px);
+}
+
+.timelineContent:hover::before {
+    transform: scaleY(1);
+}
+
+.jobHeader {
+    margin-bottom: 1.5rem;
+}
+
+.jobTitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+}
+
+.companyName {
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-weight: 500;
+    font-style: italic;
+    margin: 0 0 0.5rem 0;
+    color: var(--accent-primary);
+}
+
+.period {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    background: var(--bg-surface);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+}
+
+.jobDescription {
+    margin-top: 1rem;
+}
+
+.jobDescription p {
+    font-size: clamp(0.95rem, 1.5vw, 1rem);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+    .workExperienceSection {
+        padding: 8rem 0;
     }
 
-    .workExperienceContainer {
-        display: flex;
-        justify-content: space-between;
-        padding-top: 5px;
-        padding-left: 30px;
-        border-left: 2px solid black;
+    .container {
+        padding: 0 3rem;
     }
 
-    .workExperienceContainer div[role='job'] {
-        width: 85%;
+    .timelineItem {
+        padding-left: 5rem;
+        padding-bottom: 4rem;
+    }
+
+    .timelineMarker {
+        width: 3rem;
+    }
+
+    .markerDot {
+        width: 20px;
+        height: 20px;
+        border-width: 5px;
+    }
+
+    .timelineContent {
+        padding: 3rem;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 5rem;
+    }
+
+    .timelineItem {
+        padding-left: 6rem;
+    }
+
+    .timelineContent {
+        padding: 3.5rem;
     }
 }
