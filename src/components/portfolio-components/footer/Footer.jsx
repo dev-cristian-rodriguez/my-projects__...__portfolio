@@ -116,7 +116,7 @@ export function Footer() {
                 </aside>
 
                 <p className={style.creator}>
-                    Created by Cristian Rodriguez <span>©</span> 2023 - 2024
+                    Created by Cristian Rodriguez <span>©</span> 2023 - 2026
                 </p>
             </motion.section>
         </main>
