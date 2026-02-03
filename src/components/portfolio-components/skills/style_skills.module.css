@@ -202,19 +202,19 @@
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
 }
 
-/* Express icon color theme adjustments */
+/* NestJS icon color theme adjustments */
 /* Default: gray for light mode */
-.expressIcon {
+.nestJsIcon {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) brightness(0) saturate(100%) invert(40%);
 }
 
-/* Dark mode: white EX */
-[data-theme='dark'] .expressIcon {
+/* Dark mode: white NestJS */
+[data-theme='dark'] .nestJsIcon {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) brightness(0) saturate(100%) invert(100%);
 }
 
-/* Light mode: gray EX */
-[data-theme='light'] .expressIcon {
+/* Light mode: gray NestJS */
+[data-theme='light'] .nestJsIcon {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1)) brightness(0) saturate(100%) invert(40%);
 }
 

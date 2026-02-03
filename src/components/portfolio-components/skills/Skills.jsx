@@ -26,8 +26,8 @@ const skillsData = {
         { name: 'Python', icon: python },
         { name: 'Django', icon: django },
         {
-            name: 'Express',
-            icon: 'https://simpleicons.org/icons/express.svg',
+            name: 'NestJS',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg',
         },
         { name: 'PostgreSQL', icon: postgresql },
     ],
@@ -55,13 +55,13 @@ const SkillCard = ({ skill, index }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-50px' });
 
-    // Check if this is the Express or AWS icon
-    const isExpressIcon = skill.name === 'Express';
+    // Check if this is the NestJS or AWS icon
+    const isNestJsIcon = skill.name === 'NestJS';
     const isAWSIcon = skill.name === 'AWS';
 
     const iconClasses = [
         style.skillIcon,
-        isExpressIcon ? style.expressIcon : '',
+        isNestJsIcon ? style.nestJsIcon : '',
         isAWSIcon ? style.awsIcon : '',
     ]
         .filter(Boolean)
