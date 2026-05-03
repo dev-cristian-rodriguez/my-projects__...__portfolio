@@ -6,7 +6,7 @@ import style from './work-experience-style.module.css';
 const workExperiences = [
     {
         id: 1,
-        title: 'Frontend Developer',
+        title: 'Fullstack Developer',
         company: 'Funnelchat',
         period: 'Present',
         description:

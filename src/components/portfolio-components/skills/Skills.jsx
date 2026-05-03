@@ -14,10 +14,6 @@ const skillsData = {
         { name: 'JavaScript', icon: js },
         { name: 'React', icon: react },
         {
-            name: 'Vue.js',
-            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg',
-        },
-        {
             name: 'Next.js',
             icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
         },
