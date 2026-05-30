@@ -8,20 +8,14 @@ import style from './style_footer.module.css';
 
 const socialLinks = [
     {
-        icon: AiFillFacebook,
-        href: 'https://www.facebook.com/cristian.rodriguezbenitez.5/',
-        label: 'Facebook',
-    },
-    {
         icon: AiFillLinkedin,
         href: 'https://www.linkedin.com/in/rodriguezbenitez/',
         label: 'LinkedIn',
     },
-    { icon: AiFillGithub, href: 'https://github.com/dev-cristian-rodriguez', label: 'GitHub' },
     {
-        icon: AiOutlineInstagram,
-        href: 'https://www.instagram.com/cristianrodriguez0102/',
-        label: 'Instagram',
+        icon: AiFillGithub,
+        href: 'https://github.com/dev-cristian-rodriguez',
+        label: 'GitHub',
     },
 ];
 

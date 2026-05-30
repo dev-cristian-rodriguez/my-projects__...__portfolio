@@ -4,14 +4,47 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import style from './style_projects.module.css';
 
 // Images
-import impactX from '@/assents/images/projects/impact-x.png';
+import aiAssistantChatBot from '@/assents/images/projects/ai-assistant-chat-bot.png';
+import blogHub from '@/assents/images/projects/bloghub.png';
 import bbc_news from '@/assents/images/projects/bbc-news.png';
-import calculator from '@/assents/images/projects/calculator.png';
 import rijksmuseum from '@/assents/images/projects/rijksmuseum.jpeg';
 
 const projects = [
     {
         id: 1,
+        title: 'AI Assistant',
+        description:
+            'As an AI assistant chatbot, I help you communicate better with your customers, I also give you some information about me, my skills and my projects.',
+        image: aiAssistantChatBot,
+        github: 'https://github.com/dev-cristian-rodriguez/personal-ai-assistant-nest',
+        live: 'https://cristian-calculator-dev.onrender.com/',
+        tech: ['NestJS', 'React', 'TypeScript', 'PostgreSQL', 'OpenAI API'],
+        featured: false,
+    },
+    {
+        id: 2,
+        title: 'BlogHub',
+        description:
+            'BlogHub is a complete blogging platform developed on the Frontend with (React | Vite) and Backend with (Python | Django | PostgreSQL) that combines features of user registration, login, automatic emails, blog creation and management, social interaction and more.',
+        image: blogHub,
+        github: 'https://github.com/dev-cristian-rodriguez/impact-x__...__frontend-react',
+        live: 'https://impact-x.onrender.com',
+        tech: ['React', 'Django', 'PostgreSQL', 'Python'],
+        featured: true,
+    },
+    {
+        id: 3,
+        title: 'Rijksmuseum',
+        description:
+            "This app lets you explore the museum's major works of art, select your favorites, and save them to a database for later viewing. Discover and enjoy art in an interactive and personalized way.",
+        image: rijksmuseum,
+        github: 'https://github.com/dev-cristian-rodriguez/my-projects__...__rijksmuseum',
+        live: 'https://rijksmuseum-app.onrender.com',
+        tech: ['Next.js', 'TailwindCSS', 'PostgreSQL', 'API'],
+        featured: true,
+    },
+    {
+        id: 4,
         title: 'BBC News',
         description:
             'News portal that consumes the News API to display up-to-date information. It uses Vite and React and includes the home page, a view with top stories, and a view with news filters by category, search, and date.',
@@ -20,39 +53,6 @@ const projects = [
         live: 'https://api-news-v2.onrender.com',
         tech: ['React', 'Vite', 'API', 'JavaScript'],
         featured: true,
-    },
-    {
-        id: 2,
-        title: 'Rijksmuseum',
-        description:
-            "This app lets you explore the museum's major works of art, select your favorites, and save them to a database for later viewing. Discover and enjoy art in an interactive and personalized way.",
-        image: rijksmuseum,
-        github: 'https://github.com/dev-cristian-rodriguez/my-projects__...__rijksmuseum',
-        live: 'https://rijksmuseum-app.onrender.com',
-        tech: ['React', 'Django', 'PostgreSQL', 'API'],
-        featured: true,
-    },
-    {
-        id: 3,
-        title: 'Impact X',
-        description:
-            'IMPACT X is a complete blogging platform developed on the Frontend with (React | Vite) and Backend with (Python | Django | PostgreSQL) that combines features of user registration, login, automatic emails, blog creation and management, social interaction and more.',
-        image: impactX,
-        github: 'https://github.com/dev-cristian-rodriguez/impact-x__...__frontend-react',
-        live: 'https://impact-x.onrender.com',
-        tech: ['React', 'Django', 'PostgreSQL', 'Python'],
-        featured: true,
-    },
-    {
-        id: 4,
-        title: 'Calculator',
-        description:
-            'A Calculator designed with HTML, CSS and vanilla JavaScript using Vite, Designed with a functional and elegant interface providing precise mathematical operations and functions with the basic operations.',
-        image: calculator,
-        github: 'https://github.com/dev-cristian-rodriguez/my-projects__...__calculator',
-        live: 'https://cristian-calculator-dev.onrender.com/',
-        tech: ['JavaScript', 'HTML', 'CSS', 'Vite'],
-        featured: false,
     },
 ];
 
