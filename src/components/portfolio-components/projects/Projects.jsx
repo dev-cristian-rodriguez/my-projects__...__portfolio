@@ -17,7 +17,7 @@ const projects = [
             'As an AI assistant chatbot, I help you communicate better with your customers, I also give you some information about me, my skills and my projects.',
         image: aiAssistantChatBot,
         github: 'https://github.com/dev-cristian-rodriguez/personal-ai-assistant-nest',
-        live: 'https://cristian-calculator-dev.onrender.com/',
+        live: 'https://personal-ai-assistant-react.onrender.com',
         tech: ['NestJS', 'React', 'TypeScript', 'PostgreSQL', 'OpenAI API'],
         featured: false,
     },
