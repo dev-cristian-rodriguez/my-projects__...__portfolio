@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { GridLoader } from 'react-spinners';
-import { useTheme } from '@/context/ThemeContext.jsx';
 
 // Components
 import {
@@ -13,16 +12,10 @@ import {
     WorkExperience,
 } from '@/components/index.js';
 
-// Util
-import { activate } from '@/utils/activate.js';
-
 export const Portfolio = () => {
     const [showPortfolio, setShowPortfolio] = useState(false);
-    const { theme } = useTheme();
 
     useEffect(() => {
-        activate();
-
         setTimeout(() => {
             setShowPortfolio(true);
         }, 2500);
