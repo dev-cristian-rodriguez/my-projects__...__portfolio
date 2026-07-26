@@ -19,21 +19,54 @@
     gap: 1rem;
 }
 
+.menuButton {
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 8px;
+    color: var(--text-primary);
+}
+
+.menuButton:focus-visible,
+.themeToggle:focus-visible,
+.closeButton:focus-visible,
+.logoLink:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+}
+
 .menuIcon {
     color: var(--text-primary);
-    cursor: pointer;
     transition: transform 0.3s ease;
 }
 
-.menuIcon:hover {
+.menuButton:hover .menuIcon {
     transform: rotate(90deg);
 }
 
-.logo {
-    color: var(--accent-primary);
-    filter: drop-shadow(0 0 8px var(--accent-primary));
-    opacity: 0.8;
+.logoLink {
+    display: inline-flex;
+    align-items: center;
     flex-shrink: 0;
+    border-radius: 8px;
+    line-height: 0;
+}
+
+.logoImg {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    display: block;
+}
+
+@media screen and (min-width: 768px) {
+    .logoImg {
+        width: 48px;
+        height: 48px;
+    }
 }
 
 .themeToggle {
@@ -174,6 +207,31 @@
 }
 
 .desktopNavItemsLinks:hover::after {
+    width: 100%;
+}
+
+.desktopNavItemsLinks:focus-visible,
+.subMenuLinks:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Current section indicator */
+.desktopNavItemsLinks.activeLink {
+    color: var(--accent-primary);
+}
+
+.desktopNavItemsLinks.activeLink::after {
+    width: 100%;
+}
+
+.subMenuLinks.activeLink {
+    color: var(--accent-primary);
+    background: var(--bg-surface);
+}
+
+.subMenuLinks.activeLink::before {
     width: 100%;
 }
 

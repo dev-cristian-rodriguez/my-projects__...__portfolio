@@ -1,6 +1,5 @@
 .projectsSection {
-    min-height: 100vh;
-    padding: 6rem 0;
+    padding: 5rem 0;
     background: var(--bg-primary);
     position: relative;
     overflow: hidden;
@@ -18,6 +17,7 @@
     opacity: 0.08;
     filter: blur(100px);
     animation: float 30s ease-in-out infinite;
+    pointer-events: none;
 }
 
 @keyframes float {
@@ -31,9 +31,11 @@
 }
 
 .container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1.25rem;
+    position: relative;
+    z-index: 1;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,12 +61,6 @@
     }
 }
 
-@media screen and (min-width: 1024px) {
-    .header {
-        margin-bottom: 4rem;
-    }
-}
-
 .sectionTitle {
     font-family: var(--font-display);
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -87,18 +83,13 @@
     margin: 0 auto;
 }
 
-.bentoGrid {
+.showcase {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
-/* Ensure uniform card sizing */
-.projectCard {
-    height: 100%;
-    min-height: 480px;
-}
-
+/* Single featured card: stacked on mobile, split in two on desktop */
 .projectCard {
     background: var(--bg-glass);
     backdrop-filter: blur(20px);
@@ -106,220 +97,192 @@
     border: 1px solid var(--border);
     border-radius: 24px;
     overflow: hidden;
+    box-shadow: var(--shadow-md);
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
     transition:
-        transform 0.3s ease,
         box-shadow 0.3s ease,
         border-color 0.3s ease;
-    box-shadow: var(--shadow-md);
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    position: relative;
-    will-change: transform;
-}
-
-.projectCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--gradient-primary);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    z-index: 0;
-}
-
-.projectCard:hover::before {
-    opacity: 0.05;
 }
 
 .projectCard:hover {
     box-shadow: var(--shadow-lg);
     border-color: var(--accent-primary);
-    transform: translateY(-8px);
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
-    height: 250px;
+    aspect-ratio: 16 / 10;
     overflow: hidden;
-    background: var(--bg-surface);
-    flex-shrink: 0;
+    /* Matches the artwork's own backdrop (#eef1f2) so the image blends into the
+       tile instead of showing a seam, in both light and dark themes */
+    background: #eef1f2;
+    padding: 1.25rem;
 }
 
 .projectImage {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* contain, not cover: this is logo artwork and must not be cropped */
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
 }
 
 .projectCard:hover .projectImage {
-    transform: scale(1.1);
-}
-
-.imageOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-    display: flex;
-    align-items: flex-end;
-    padding: 1.5rem;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.projectCard:hover .imageOverlay {
-    opacity: 1;
-}
-
-.techTags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.techTag {
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    color: white;
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    font-family: var(--font-mono);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    transition: transform 0.2s ease;
-}
-
-.techTag:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.04);
 }
 
 .cardContent {
-    padding: 1.5rem;
+    padding: 1.75rem 1.5rem 2rem;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 1rem;
-    flex: 1;
-    position: relative;
-    z-index: 1;
-}
-
-@media screen and (min-width: 768px) {
-    .cardContent {
-        padding: 1.5rem;
-    }
 }
 
 @media screen and (min-width: 1024px) {
     .cardContent {
-        padding: 2rem;
+        padding: 2.5rem;
+        justify-content: center;
     }
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    background: color-mix(in srgb, var(--accent-primary) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-primary) 35%, transparent);
 }
 
 .projectTitle {
     font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
     font-weight: 600;
     margin: 0;
     color: var(--text-primary);
 }
 
 .projectDescription {
-    font-size: clamp(0.95rem, 1.5vw, 1rem);
-    line-height: 1.7;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    line-height: 1.75;
     color: var(--text-secondary);
     margin: 0;
-    flex: 1;
+    max-width: 52ch;
+}
+
+/* Tech stack is always visible — it used to appear only on hover, which is
+   unreachable on touch devices */
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0.25rem 0 0;
+    padding: 0;
+}
+
+.techTag {
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-mono);
+    border: 1px solid var(--border);
 }
 
 .cardActions {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.85rem;
+    margin-top: 0.75rem;
     flex-wrap: wrap;
 }
 
 .projectLink {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     border-radius: 12px;
     text-decoration: none;
     font-weight: 500;
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    transition:
+        background 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease;
     border: 1px solid var(--border);
     background: var(--bg-surface);
     color: var(--text-primary);
 }
 
 .projectLink:hover {
-    background: var(--bg-surface);
     border-color: var(--accent-primary);
     color: var(--accent-primary);
+}
+
+.projectLink:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
 }
 
 .primaryLink {
     background: var(--gradient-primary);
     color: white;
-    border: none;
+    border: 1px solid transparent;
 }
 
 .primaryLink:hover {
-    background: var(--gradient-primary);
     color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 16px rgba(110, 7, 243, 0.4);
+    box-shadow: 0 6px 20px color-mix(in srgb, var(--accent-primary) 40%, transparent);
 }
 
-/* Desktop Bento Grid Layout */
 @media screen and (min-width: 768px) {
     .projectsSection {
         padding: 6rem 0;
-    }
-
-    .bentoGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
-
-    .projectCard {
-        min-height: 520px;
-    }
-
-    .imageWrapper {
-        height: 240px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .projectsSection {
-        padding: 8rem 0;
+        padding: 7rem 0;
     }
 
-    .bentoGrid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
-    }
-
-    /* Uniform sizing - all cards same size */
     .projectCard {
-        min-height: 580px;
-        height: 100%;
+        grid-template-columns: 1.05fr 1fr;
+        align-items: stretch;
     }
 
     .imageWrapper {
-        height: 280px;
+        aspect-ratio: auto;
+        height: 100%;
+        min-height: 400px;
+        padding: 2rem;
+    }
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+    .projectsSection::before {
+        animation: none;
+    }
+
+    .projectCard:hover .projectImage {
+        transform: none;
     }
 }

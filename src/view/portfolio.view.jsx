@@ -16,13 +16,19 @@ export const Portfolio = () => {
     const [showPortfolio, setShowPortfolio] = useState(false);
 
     useEffect(() => {
-        setTimeout(() => {
+        // Short brand moment only — a longer gate just makes the site feel slow
+        const timer = setTimeout(() => {
             setShowPortfolio(true);
-        }, 2500);
+        }, 500);
+
+        return () => clearTimeout(timer);
     }, []);
 
     return showPortfolio ? (
         <>
+            <a href="#about_me" className="skipLink">
+                Skip to content
+            </a>
             <Navbar />
             <AboutMe />
             <Skills />

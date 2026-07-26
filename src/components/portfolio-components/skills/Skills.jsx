@@ -19,12 +19,12 @@ const skillsData = {
         },
     ],
     backend: [
-        { name: 'Python', icon: python },
-        { name: 'Django', icon: django },
         {
             name: 'NestJS',
             icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg',
         },
+        { name: 'Python', icon: python },
+        { name: 'Django', icon: django },
         { name: 'PostgreSQL', icon: postgresql },
     ],
     tools: [

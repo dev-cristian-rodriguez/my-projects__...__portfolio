@@ -94,6 +94,37 @@ body {
     overflow-x: hidden;
 }
 
+/* Anchor targets clear the fixed navbar instead of hiding under it */
+[id] {
+    scroll-margin-top: 90px;
+}
+
+/* Keyboard users get a visible focus ring everywhere by default */
+:focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+}
+
+/* Skip link — visible only when focused */
+.skipLink {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -150%);
+    z-index: 1100;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0 0 12px 12px;
+    background: var(--accent-primary);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.skipLink:focus {
+    transform: translate(-50%, 0);
+}
+
 /* Typography Scale */
 h1,
 h2,

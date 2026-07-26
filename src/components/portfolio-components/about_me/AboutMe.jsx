@@ -1,48 +1,15 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { FiArrowDown, FiMail } from 'react-icons/fi';
 
 // Image
-import me2 from '@/assents/images/about_me/me-2.png';
+import me2 from '@/assents/images/about_me/me-2.webp';
 
 import style from './style_about_me.module.css';
 
 export function AboutMe() {
-    const [apparence, setApparence] = useState({
-        opacity: '0.2',
-        width: '48%',
-        boxShadow: '0 2px 6px rgba(0, 2, 2, 1)',
-    });
-
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
-
-    useEffect(() => {
-        if (apparence.opacity === '0.2' && apparence.width === '48%') {
-            setTimeout(() => {
-                setApparence({
-                    opacity: '1',
-                    width: '65%',
-                    boxShadow: '0 2px 6px rgba(0, 2, 2, 1)',
-                });
-            }, 1000);
-        }
-
-        if (
-            apparence.opacity === '1' &&
-            apparence.width === '65%' &&
-            apparence.boxShadow === '0 2px 6px rgba(0, 2, 2, 1)'
-        ) {
-            setTimeout(() => {
-                setApparence({
-                    opacity: '1',
-                    width: '65%',
-                    boxShadow: '0 6px 40px rgb(68, 68, 68)',
-                });
-            }, 1000);
-        }
-    }, [apparence]);
 
     return (
         <main id="about_me" ref={ref} className={style.aboutMeSection}>
@@ -54,10 +21,11 @@ export function AboutMe() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <motion.img
-                        style={apparence}
                         className={style.imgCristian}
                         src={me2}
-                        alt="Cristian Rodriguez"
+                        alt="Portrait of Cristian Rodriguez"
+                        fetchpriority="high"
+                        decoding="async"
                         whileHover={{ scale: 1.05 }}
                         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                     />
@@ -70,6 +38,8 @@ export function AboutMe() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
+                    <p className={style.eyebrow}>Cristian Rodriguez</p>
+
                     <h1 className={style.name}>
                         <span className={style.gradientText}>F</span>ullstack Developer
                     </h1>
@@ -77,6 +47,27 @@ export function AboutMe() {
                     <p className={style.description}>
                         I design and code beautifully simple things and I love what I do.
                     </p>
+
+                    <div className={style.ctaGroup}>
+                        <motion.a
+                            href="#projects"
+                            className={`${style.cta} ${style.ctaPrimary}`}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                        >
+                            <span>See my work</span>
+                            <FiArrowDown size={18} aria-hidden="true" />
+                        </motion.a>
+                        <motion.a
+                            href="#footer"
+                            className={style.cta}
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                        >
+                            <FiMail size={18} aria-hidden="true" />
+                            <span>Get in touch</span>
+                        </motion.a>
+                    </div>
 
                     <motion.div
                         className={style.devicesContainer}
@@ -87,7 +78,10 @@ export function AboutMe() {
                         <img
                             className={style.imgDesktops}
                             src="https://mattfarley.ca/img/hero-devices.svg"
-                            alt="Devices"
+                            alt=""
+                            aria-hidden="true"
+                            loading="lazy"
+                            decoding="async"
                         />
                     </motion.div>
                 </motion.div>

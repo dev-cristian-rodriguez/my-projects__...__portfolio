@@ -4,10 +4,7 @@ import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import style from './style_projects.module.css';
 
 // Images
-import aiAssistantChatBot from '@/assents/images/projects/ai-assistant-chat-bot.png';
-import blogHub from '@/assents/images/projects/bloghub.png';
-import bbc_news from '@/assents/images/projects/bbc-news.png';
-import rijksmuseum from '@/assents/images/projects/rijksmuseum.jpeg';
+import aiAssistantChatBot from '@/assents/images/projects/ai-assistant-chat-bot.webp';
 
 const projects = [
     {
@@ -19,100 +16,69 @@ const projects = [
         github: 'https://github.com/dev-cristian-rodriguez/personal-ai-assistant-nest',
         live: 'https://personal-ai-assistant-react.onrender.com',
         tech: ['NestJS', 'React', 'TypeScript', 'PostgreSQL', 'OpenAI API'],
-        featured: false,
-    },
-    {
-        id: 2,
-        title: 'BlogHub',
-        description:
-            'BlogHub is a complete blogging platform developed on the Frontend with (React | Vite) and Backend with (Python | Django | PostgreSQL) that combines features of user registration, login, automatic emails, blog creation and management, social interaction and more.',
-        image: blogHub,
-        github: 'https://github.com/dev-cristian-rodriguez/impact-x__...__frontend-react',
-        live: 'https://impact-x.onrender.com',
-        tech: ['React', 'Django', 'PostgreSQL', 'Python'],
-        featured: true,
-    },
-    {
-        id: 3,
-        title: 'Rijksmuseum',
-        description:
-            "This app lets you explore the museum's major works of art, select your favorites, and save them to a database for later viewing. Discover and enjoy art in an interactive and personalized way.",
-        image: rijksmuseum,
-        github: 'https://github.com/dev-cristian-rodriguez/my-projects__...__rijksmuseum',
-        live: 'https://rijksmuseum-app.onrender.com',
-        tech: ['Next.js', 'TailwindCSS', 'PostgreSQL', 'API'],
-        featured: true,
-    },
-    {
-        id: 4,
-        title: 'BBC News',
-        description:
-            'News portal that consumes the News API to display up-to-date information. It uses Vite and React and includes the home page, a view with top stories, and a view with news filters by category, search, and date.',
-        image: bbc_news,
-        github: 'https://github.com/dev-cristian-rodriguez/my-projects__...__news-frontend-application',
-        live: 'https://api-news-v2.onrender.com',
-        tech: ['React', 'Vite', 'API', 'JavaScript'],
-        featured: true,
     },
 ];
 
-const ProjectCard = ({ project, index, isInView }) => {
-    const cardRef = useRef(null);
+const ProjectCard = ({ project, isInView }) => (
+    <motion.article
+        className={style.projectCard}
+        initial={{ opacity: 0, y: 40 }}
+        animate={isInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6, delay: 0.15 }}
+    >
+        <div className={style.imageWrapper}>
+            <img
+                className={style.projectImage}
+                src={project.image}
+                alt={`${project.title} project artwork`}
+                loading="lazy"
+                decoding="async"
+            />
+        </div>
 
-    return (
-        <motion.article
-            ref={cardRef}
-            className={style.projectCard}
-            initial={{ opacity: 0, y: 50 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: index * 0.15 }}
-            whileHover={{ y: -8 }}
-        >
-            <div className={style.imageWrapper}>
-                <img className={style.projectImage} src={project.image} alt={project.title} />
-                <div className={style.imageOverlay}>
-                    <div className={style.techTags}>
-                        {project.tech.map((tech) => (
-                            <span key={tech} className={style.techTag}>
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                </div>
+        <div className={style.cardContent}>
+            <span className={style.badge}>Featured</span>
+
+            <h2 className={style.projectTitle}>{project.title}</h2>
+            <p className={style.projectDescription}>{project.description}</p>
+
+            <ul className={style.techTags} aria-label={`Tech stack used in ${project.title}`}>
+                {project.tech.map((tech) => (
+                    <li key={tech} className={style.techTag}>
+                        {tech}
+                    </li>
+                ))}
+            </ul>
+
+            <div className={style.cardActions}>
+                <motion.a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${style.projectLink} ${style.primaryLink}`}
+                    aria-label={`Open the live demo of ${project.title} in a new tab`}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                >
+                    <FiExternalLink size={20} aria-hidden="true" />
+                    <span>Live demo</span>
+                </motion.a>
+                <motion.a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={style.projectLink}
+                    aria-label={`View the source code of ${project.title} on GitHub in a new tab`}
+                    whileHover={{ scale: 1.03 }}
+                    whileTap={{ scale: 0.97 }}
+                >
+                    <FiGithub size={20} aria-hidden="true" />
+                    <span>Source code</span>
+                </motion.a>
             </div>
-
-            <div className={style.cardContent}>
-                <h2 className={style.projectTitle}>{project.title}</h2>
-                <p className={style.projectDescription}>{project.description}</p>
-
-                <div className={style.cardActions}>
-                    <motion.a
-                        href={project.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={style.projectLink}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <FiGithub size={20} />
-                        <span>Code</span>
-                    </motion.a>
-                    <motion.a
-                        href={project.live}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={`${style.projectLink} ${style.primaryLink}`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <FiExternalLink size={20} />
-                        <span>Live</span>
-                    </motion.a>
-                </div>
-            </div>
-        </motion.article>
-    );
-};
+        </div>
+    </motion.article>
+);
 
 export function Projects() {
     const ref = useRef(null);
@@ -128,21 +94,16 @@ export function Projects() {
             >
                 <div className={style.header}>
                     <h1 className={style.sectionTitle}>
-                        <span className={style.gradientText}>Featured</span> Projects
+                        <span className={style.gradientText}>Featured</span> Project
                     </h1>
                     <p className={style.sectionSubtitle}>
-                        A showcase of my recent work and projects
+                        The project I am currently focused on, built end to end
                     </p>
                 </div>
 
-                <div className={style.bentoGrid}>
-                    {projects.map((project, index) => (
-                        <ProjectCard
-                            key={project.id}
-                            project={project}
-                            index={index}
-                            isInView={isInView}
-                        />
+                <div className={style.showcase}>
+                    {projects.map((project) => (
+                        <ProjectCard key={project.id} project={project} isInView={isInView} />
                     ))}
                 </div>
             </motion.div>

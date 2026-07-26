@@ -31,19 +31,11 @@ export const ThemeProvider = ({ children }) => {
 
             // Also set on body for additional specificity
             document.body.setAttribute('data-theme', theme);
-
-            console.log('Theme changed to:', theme);
-            console.log('HTML data-theme:', htmlElement.getAttribute('data-theme'));
         }
     }, [theme]);
 
     const toggleTheme = () => {
-        console.log('toggleTheme called, current theme:', theme);
-        setTheme((prevTheme) => {
-            const newTheme = prevTheme === 'dark' ? 'light' : 'dark';
-            console.log('Toggling theme from', prevTheme, 'to', newTheme);
-            return newTheme;
-        });
+        setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
     };
 
     return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
