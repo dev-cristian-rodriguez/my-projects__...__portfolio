@@ -147,6 +147,28 @@
     margin: 0;
 }
 
+/* Domain positioning: states the niche, not just the job title */
+.domainChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.domainChip {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+}
+
 /* Primary calls to action — the hero had no next step before */
 .ctaGroup {
     display: flex;
@@ -249,7 +271,8 @@
         max-width: 600px;
     }
 
-    .ctaGroup {
+    .ctaGroup,
+    .domainChips {
         justify-content: flex-start;
     }
 

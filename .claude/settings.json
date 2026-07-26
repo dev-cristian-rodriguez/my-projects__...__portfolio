@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "WebSearch"
+      "WebSearch",
+      "Bash(node -e ' *)",
+      "Bash(pkill -f \"vite --port 5199\")",
+      "Bash(pkill -f \"vite --port 5200\")",
+      "Bash(exit 0)",
+      "WebFetch(domain:z-api.io)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

@@ -7,6 +7,8 @@ import me2 from '@/assents/images/about_me/me-2.webp';
 
 import style from './style_about_me.module.css';
 
+const domainChips = ['WhatsApp Cloud API', 'Automation flows', 'Real-time messaging', 'Fullstack'];
+
 export function AboutMe() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -45,8 +47,18 @@ export function AboutMe() {
                     </h1>
 
                     <p className={style.description}>
-                        I design and code beautifully simple things and I love what I do.
+                        I build messaging and automation platforms on top of WhatsApp — integrations
+                        with the Meta Cloud API and third-party providers, automation flows, and
+                        real-time conversations.
                     </p>
+
+                    <ul className={style.domainChips} aria-label="Areas I work in">
+                        {domainChips.map((chip) => (
+                            <li key={chip} className={style.domainChip}>
+                                {chip}
+                            </li>
+                        ))}
+                    </ul>
 
                     <div className={style.ctaGroup}>
                         <motion.a

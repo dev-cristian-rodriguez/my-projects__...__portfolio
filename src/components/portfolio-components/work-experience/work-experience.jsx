@@ -9,8 +9,16 @@ const workExperiences = [
         title: 'Fullstack Developer',
         company: 'Funnelchat',
         period: 'Present',
-        description:
-            'I played a key role in developing essential features for Funnelchat, focusing on scalable and user-friendly solutions for WhatsApp contact management and automation. Using React, Tailwind CSS, and Node.js, I optimized workflows, integrated APIs, and built reusable components to enhance functionality and maintainability across the platform.',
+        summary:
+            'Funnelchat is a WhatsApp automation platform — the ManyChat category — where businesses manage their contacts, run automated conversation flows and answer customers from a shared inbox. I work across the product, from the messaging integrations up to the interfaces agents use every day.',
+        highlights: [
+            'Built WhatsApp integrations against the official Meta Cloud API and third-party providers such as Z-API, handling webhooks, message templates and delivery state.',
+            'Developed automation flows where a trigger runs through conditions and actions, so conversations continue without an agent replying to every message.',
+            'Worked on interactive chat backed by real-time events, keeping conversation state in sync across agents and clients.',
+            'Built contact management and segmentation features so automations reach a targeted audience instead of every contact.',
+            'Created reusable components and shared frontend libraries to keep the platform consistent and maintainable.',
+        ],
+        stack: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Meta Cloud API', 'Z-API'],
     },
 ];
 
@@ -62,7 +70,23 @@ export const WorkExperience = () => {
                                 </div>
 
                                 <div className={style.jobDescription}>
-                                    <p>{experience.description}</p>
+                                    <p>{experience.summary}</p>
+
+                                    <ul className={style.highlightList}>
+                                        {experience.highlights.map((highlight) => (
+                                            <li key={highlight} className={style.highlight}>
+                                                {highlight}
+                                            </li>
+                                        ))}
+                                    </ul>
+
+                                    <ul className={style.stackList} aria-label="Stack used">
+                                        {experience.stack.map((item) => (
+                                            <li key={item} className={style.stackTag}>
+                                                {item}
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </div>
                             </motion.div>
                         </motion.div>

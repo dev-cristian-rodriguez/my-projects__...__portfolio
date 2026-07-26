@@ -1,5 +1,7 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { SiWhatsapp, SiSocketdotio } from 'react-icons/si';
+import { TbWebhook } from 'react-icons/tb';
 import style from './style_skills.module.css';
 
 // Import images
@@ -8,6 +10,7 @@ import react from '@/assents/images/skills/icon-react.png';
 import python from '@/assents/images/skills/icon-python.png';
 import django from '@/assents/images/skills/icon-django.jpg';
 import postgresql from '@/assents/images/skills/icon-postgresql.png';
+import zapi from '@/assents/images/skills/icon-zapi.png';
 
 const skillsData = {
     frontend: [
@@ -26,6 +29,14 @@ const skillsData = {
         { name: 'Python', icon: python },
         { name: 'Django', icon: django },
         { name: 'PostgreSQL', icon: postgresql },
+    ],
+    // Messaging providers and event plumbing — the niche this portfolio speaks to.
+    // These use react-icons components because several have no public logo asset.
+    integrations: [
+        { name: 'WhatsApp Cloud API', icon: SiWhatsapp, accent: '#25D366' },
+        { name: 'Z-API', icon: zapi },
+        { name: 'Webhooks', icon: TbWebhook },
+        { name: 'WebSockets', icon: SiSocketdotio },
     ],
     tools: [
         {
@@ -63,6 +74,9 @@ const SkillCard = ({ skill, index }) => {
         .filter(Boolean)
         .join(' ');
 
+    // Icons are either an image URL or a react-icons component
+    const IconComponent = typeof skill.icon === 'string' ? null : skill.icon;
+
     return (
         <motion.div
             ref={ref}
@@ -73,7 +87,15 @@ const SkillCard = ({ skill, index }) => {
             whileHover={{ y: -5, scale: 1.02 }}
         >
             <div className={style.skillIconContainer}>
-                <img className={iconClasses} src={skill.icon} alt={skill.name} />
+                {IconComponent ? (
+                    <IconComponent
+                        className={style.skillIconComponent}
+                        style={skill.accent ? { color: skill.accent } : undefined}
+                        aria-hidden="true"
+                    />
+                ) : (
+                    <img className={iconClasses} src={skill.icon} alt={skill.name} />
+                )}
             </div>
             <h3 className={style.skillName}>{skill.name}</h3>
         </motion.div>
@@ -87,19 +109,14 @@ export function Skills() {
     return (
         <main id="skills" ref={ref} className={style.skillsSection}>
             <motion.div
-                className={style.containerOfMyPresentation}
-                initial={{ opacity: 0, y: 50 }}
+                className={style.sectionHeader}
+                initial={{ opacity: 0, y: 30 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 0.6 }}
             >
-                <h1 className={style.title}>Hello, I am Cristian Rodriguez</h1>
-                <p className={style.text}>
-                    As a web developer, I have solid experience in creating and maintaining web
-                    applications. My experience covers both the client side (frontend) and the
-                    server side (backend), optimal management of version control with git and
-                    github, knowledge and basic management of the cloud with AWS. This allows me to
-                    approach projects in a comprehensive and optimal way.
-                </p>
+                <h1 className={style.sectionTitle}>
+                    Tools &amp; <span className={style.gradientText}>technologies</span>
+                </h1>
             </motion.div>
 
             <div className={style.skillsContainer}>
@@ -137,9 +154,25 @@ export function Skills() {
 
                 <motion.div
                     className={style.skillCategory}
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                    <h2 className={style.categoryTitle}>
+                        <span className={style.categoryIcon}>💬</span> Messaging & Integrations
+                    </h2>
+                    <div className={style.skillsGrid}>
+                        {skillsData.integrations.map((skill, index) => (
+                            <SkillCard key={skill.name} skill={skill} index={index} />
+                        ))}
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    className={style.skillCategory}
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6, delay: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
                 >
                     <h2 className={style.categoryTitle}>
                         <span className={style.categoryIcon}>🛠️</span> Tools

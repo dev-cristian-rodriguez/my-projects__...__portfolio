@@ -6,6 +6,7 @@ import {
     AboutMe,
     Navbar,
     Footer,
+    WhatIBuild,
     Skills,
     Education,
     Projects,
@@ -31,6 +32,7 @@ export const Portfolio = () => {
             </a>
             <Navbar />
             <AboutMe />
+            <WhatIBuild />
             <Skills />
             <WorkExperience />
             <Education />
