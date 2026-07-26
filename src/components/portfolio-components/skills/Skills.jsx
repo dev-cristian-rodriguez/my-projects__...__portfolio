@@ -8,8 +8,7 @@ import style from './style_skills.module.css';
 import js from '@/assents/images/skills/icon-js.png';
 import react from '@/assents/images/skills/icon-react.png';
 import python from '@/assents/images/skills/icon-python.png';
-import django from '@/assents/images/skills/icon-django.jpg';
-import postgresql from '@/assents/images/skills/icon-postgresql.png';
+import express from '@/assents/images/skills/express.png';
 import zapi from '@/assents/images/skills/icon-zapi.png';
 
 const skillsData = {
@@ -26,13 +25,16 @@ const skillsData = {
         },
     ],
     backend: [
+        { name: 'Express.js', icon: express },
         {
             name: 'NestJS',
             icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg',
         },
         { name: 'Python', icon: python },
-        { name: 'Django', icon: django },
-        { name: 'PostgreSQL', icon: postgresql },
+        {
+            name: 'FastAPI',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg',
+        },
     ],
     // Messaging providers and event plumbing — the niche this portfolio speaks to.
     // These use react-icons components because several have no public logo asset.
