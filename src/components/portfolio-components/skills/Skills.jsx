@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { SiWhatsapp, SiSocketdotio } from 'react-icons/si';
+import { SiMeta, SiSocketdotio } from 'react-icons/si';
 import { TbWebhook } from 'react-icons/tb';
 import style from './style_skills.module.css';
 
@@ -37,7 +37,7 @@ const skillsData = {
     // Messaging providers and event plumbing — the niche this portfolio speaks to.
     // These use react-icons components because several have no public logo asset.
     integrations: [
-        { name: 'WhatsApp Cloud API', icon: SiWhatsapp, accent: '#25D366' },
+        { name: 'WhatsApp Cloud API', icon: SiMeta, accent: '#0467DF' },
         { name: 'Z-API', icon: zapi },
         { name: 'Webhooks', icon: TbWebhook },
         { name: 'WebSockets', icon: SiSocketdotio },
@@ -48,16 +48,16 @@ const skillsData = {
             icon: 'https://cdn.icon-icons.com/icons2/1476/PNG/512/github_101792.png',
         },
         {
-            name: 'AWS',
-            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+            name: 'Postman',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg',
         },
         {
             name: 'Docker',
             icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg',
         },
         {
-            name: 'Linux',
-            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg',
+            name: 'AWS',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
         },
     ],
 };
