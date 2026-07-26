@@ -15,6 +15,10 @@ import zapi from '@/assents/images/skills/icon-zapi.png';
 const skillsData = {
     frontend: [
         { name: 'JavaScript', icon: js },
+        {
+            name: 'Tailwind CSS',
+            icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+        },
         { name: 'React', icon: react },
         {
             name: 'Next.js',
