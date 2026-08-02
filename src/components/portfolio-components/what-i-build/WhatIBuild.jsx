@@ -18,15 +18,15 @@ const capabilities = [
         icon: TbRouteSquare,
         title: 'Automation & flows',
         description:
-            'Visual automation builders in the spirit of ManyChat, where a trigger leads into conditions and actions so that conversations continue without an agent having to answer every message.',
-        tags: ['Flow builders', 'Triggers', 'Campaigns'],
+            'Visual automation builders, where a trigger gives way to conditions and actions so that conversations continue without an agent having to respond to each message.',
+        tags: ['Flow builders', 'Triggers'],
     },
     {
         icon: FiActivity,
         title: 'Real-time conversations',
         description:
             'Interactive chat that stays in sync: live message events, a shared inbox several agents can work from at once, and conversation state that stays consistent across clients.',
-        tags: ['WebSockets', 'Live events', 'Shared inbox'],
+        tags: ['WebSockets', 'Live events'],
     },
     {
         icon: FiUsers,
