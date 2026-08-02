@@ -10,7 +10,6 @@
         "jobTitle": "Desarrollador Fullstack",
         "jsonLdDescription": "Desarrollador Fullstack que construye plataformas de mensajería y automatización sobre WhatsApp: integraciones con la Meta Cloud API y proveedores externos, flows de automatización y conversaciones en tiempo real."
     },
-
     "a11y": {
         "skipToContent": "Saltar al contenido",
         "backToTop": "Cristian Rodriguez — volver arriba",
@@ -21,11 +20,9 @@
         "switchToDarkTheme": "Cambiar al tema oscuro",
         "switchToThisLanguage": "Cambiar a español"
     },
-
     "language": {
         "shortLabel": "ES"
     },
-
     "nav": {
         "aboutMe": "Sobre mí",
         "expertise": "Especialidad",
@@ -33,7 +30,6 @@
         "work": "Proyectos",
         "contact": "Contacto"
     },
-
     "about": {
         "eyebrow": "Cristian Rodriguez",
         "role": "Desarrollador Fullstack",
@@ -49,11 +45,14 @@
         "ctaContact": "Contáctame",
         "portraitAlt": "Retrato de Cristian Rodriguez"
     },
-
     "expertise": {
         "eyebrow": "Especialidad",
-        "title": { "pre": "Lo que ", "accent": "construyo", "post": "" },
-        "subtitle": "Mi día a día es la automatización de mensajería sobre WhatsApp — el tipo de plataforma donde las empresas hablan con sus clientes a escala.",
+        "title": {
+            "pre": "Lo que ",
+            "accent": "construyo",
+            "post": ""
+        },
+        "subtitle": "Mi día a día es la automatización de mensajería sobre WhatsApp donde las empresas hablan con sus clientes a escala.",
         "cards": {
             "whatsapp": {
                 "title": "Integraciones con WhatsApp",
@@ -77,9 +76,12 @@
             }
         }
     },
-
     "skills": {
-        "title": { "pre": "Herramientas y ", "accent": "tecnologías", "post": "" },
+        "title": {
+            "pre": "Herramientas y ",
+            "accent": "tecnologías",
+            "post": ""
+        },
         "categories": {
             "frontend": "Frontend",
             "backend": "Backend",
@@ -90,7 +92,6 @@
         "serviceCount_other": "{{count}} servicios",
         "serviceStripTitle": "Servicios de {{name}} con los que trabajo"
     },
-
     "experience": {
         "sectionTitle": "Experiencia laboral",
         "stackLabel": "Stack utilizado",
@@ -99,7 +100,7 @@
                 "title": "Desarrollador Fullstack",
                 "company": "Funnelchat",
                 "period": "Actualidad",
-                "summary": "Funnelchat es una plataforma de automatización de WhatsApp — la categoría de ManyChat — donde las empresas gestionan sus contactos, ejecutan flows de conversación automatizados y atienden a sus clientes desde un inbox compartido. Trabajo en todo el producto, desde las integraciones de mensajería hasta las interfaces que los agentes usan a diario.",
+                "summary": "Funnelchat es una plataforma de automatización de WhatsApp donde las empresas gestionan sus contactos, ejecutan flows de conversación automatizados y atienden a sus clientes desde un inbox compartido. Trabajo en todo el producto, desde las integraciones de mensajería hasta las interfaces que los agentes usan a diario.",
                 "highlights": [
                     "Construí integraciones con WhatsApp sobre la Meta Cloud API oficial y proveedores externos como Z-API, manejando webhooks, plantillas de mensajes y estado de entrega.",
                     "Desarrollé flows de automatización donde un disparador recorre condiciones y acciones, para que las conversaciones continúen sin que un agente responda cada mensaje.",
@@ -110,9 +111,12 @@
             }
         }
     },
-
     "projects": {
-        "title": { "pre": "Trabajo ", "accent": "destacado", "post": "" },
+        "title": {
+            "pre": "Trabajo ",
+            "accent": "destacado",
+            "post": ""
+        },
         "subtitle": "La plataforma que construyo profesionalmente y un proyecto propio",
         "liveDemo": "Demo en vivo",
         "sourceCode": "Código fuente",
@@ -124,7 +128,7 @@
             "funnelchat": {
                 "badge": "Caso de estudio",
                 "title": "Plataforma de automatización de WhatsApp",
-                "description": "Una plataforma de la categoría de ManyChat, construida con el equipo de Funnelchat: las empresas conectan su cuenta de WhatsApp, organizan sus contactos y dejan que flows automatizados lleven las conversaciones, que los agentes retoman desde un inbox compartido cuando hace falta una persona. Trabajo en las integraciones de mensajería, los flows de automatización y las interfaces que los agentes usan a diario.",
+                "description": "Una plataforma construida con el equipo de Funnelchat: las empresas conectan su cuenta de WhatsApp, organizan sus contactos y dejan que flows automatizados lleven las conversaciones, que los agentes retoman desde un inbox compartido cuando hace falta una persona. Trabajo en las integraciones de mensajería, los flows de automatización y las interfaces que los agentes usan a diario.",
                 "note": "Código privado y comercial — con gusto recorro la arquitectura en una conversación."
             },
             "aiAssistant": {
@@ -134,7 +138,6 @@
             }
         }
     },
-
     "footer": {
         "contactTitle": "¡Hablemos!",
         "contactDescription": "Escríbeme para empezar tu proyecto de desarrollo web y haré realidad tu visión.",
