@@ -1,0 +1,142 @@
+{
+    "meta": {
+        "title": "Cristian Rodriguez | Fullstack Developer — WhatsApp automation platforms",
+        "description": "Cristian Rodriguez — Fullstack Developer building WhatsApp messaging and automation platforms: Meta Cloud API and third-party provider integrations, automation flows and real-time conversations.",
+        "ogTitle": "Cristian Rodriguez | Fullstack Developer — WhatsApp automation platforms",
+        "ogDescription": "I build messaging and automation platforms on top of WhatsApp: Meta Cloud API and third-party provider integrations, automation flows and real-time conversations.",
+        "ogImageAlt": "Cristian Rodriguez CR logo",
+        "ogLocale": "en_US",
+        "ogLocaleAlternate": "es_ES",
+        "jobTitle": "Fullstack Developer",
+        "jsonLdDescription": "Fullstack Developer building WhatsApp messaging and automation platforms: Meta Cloud API and third-party provider integrations, automation flows and real-time conversations."
+    },
+
+    "a11y": {
+        "skipToContent": "Skip to content",
+        "backToTop": "Cristian Rodriguez — back to top",
+        "openMenu": "Open navigation menu",
+        "closeMenu": "Close navigation menu",
+        "mainNavigation": "Main navigation",
+        "switchToLightTheme": "Switch to light theme",
+        "switchToDarkTheme": "Switch to dark theme",
+        "switchToThisLanguage": "Switch to English"
+    },
+
+    "language": {
+        "shortLabel": "EN"
+    },
+
+    "nav": {
+        "aboutMe": "About me",
+        "expertise": "Expertise",
+        "skills": "Skills",
+        "work": "Work",
+        "contact": "Contact"
+    },
+
+    "about": {
+        "eyebrow": "Cristian Rodriguez",
+        "role": "Fullstack Developer",
+        "description": "I build messaging and automation platforms on top of WhatsApp — integrations with the Meta Cloud API and third-party providers, automation flows, and real-time conversations.",
+        "chipsLabel": "Areas I work in",
+        "chips": ["WhatsApp Cloud API", "Automation flows", "Real-time messaging", "Fullstack"],
+        "ctaWork": "See my work",
+        "ctaContact": "Get in touch",
+        "portraitAlt": "Portrait of Cristian Rodriguez"
+    },
+
+    "expertise": {
+        "eyebrow": "Domain expertise",
+        "title": { "pre": "What I ", "accent": "build", "post": "" },
+        "subtitle": "My day-to-day work is messaging automation over WhatsApp — the kind of platform where businesses talk to their customers at scale.",
+        "cards": {
+            "whatsapp": {
+                "title": "WhatsApp integrations",
+                "description": "Connecting messaging platforms to WhatsApp through the official Meta Cloud API and through third-party providers such as Z-API: webhooks, message templates, session handling and delivery state.",
+                "tags": ["Meta Cloud API", "Z-API", "Webhooks"]
+            },
+            "automation": {
+                "title": "Automation & flows",
+                "description": "Visual automation builders, where a trigger gives way to conditions and actions so that conversations continue without an agent having to respond to each message.",
+                "tags": ["Flow builders", "Triggers"]
+            },
+            "realtime": {
+                "title": "Real-time conversations",
+                "description": "Interactive chat that stays in sync: live message events, a shared inbox several agents can work from at once, and conversation state that stays consistent across clients.",
+                "tags": ["WebSockets", "Live events"]
+            },
+            "contacts": {
+                "title": "Contact management",
+                "description": "The data layer underneath the conversations: organising and segmenting contacts so automations can target the right audience instead of broadcasting to everyone.",
+                "tags": ["Segmentation", "Contact data", "Bulk sending"]
+            }
+        }
+    },
+
+    "skills": {
+        "title": { "pre": "Tools & ", "accent": "technologies", "post": "" },
+        "categories": {
+            "frontend": "Frontend",
+            "backend": "Backend",
+            "integrations": "Messaging & Integrations",
+            "tools": "Tools"
+        },
+        "serviceCount_one": "{{count}} service",
+        "serviceCount_other": "{{count}} services",
+        "serviceStripTitle": "{{name}} services I work with"
+    },
+
+    "experience": {
+        "sectionTitle": "Work Experience",
+        "stackLabel": "Stack used",
+        "jobs": {
+            "funnelchat": {
+                "title": "Fullstack Developer",
+                "company": "Funnelchat",
+                "period": "Present",
+                "summary": "Funnelchat is a WhatsApp automation platform — the ManyChat category — where businesses manage their contacts, run automated conversation flows and answer customers from a shared inbox. I work across the product, from the messaging integrations up to the interfaces agents use every day.",
+                "highlights": [
+                    "Built WhatsApp integrations against the official Meta Cloud API and third-party providers such as Z-API, handling webhooks, message templates and delivery state.",
+                    "Developed automation flows where a trigger runs through conditions and actions, so conversations continue without an agent replying to every message.",
+                    "Worked on interactive chat backed by real-time events, keeping conversation state in sync across agents and clients.",
+                    "Built contact management and segmentation features so automations reach a targeted audience instead of every contact.",
+                    "Created reusable components and shared frontend libraries to keep the platform consistent and maintainable."
+                ]
+            }
+        }
+    },
+
+    "projects": {
+        "title": { "pre": "", "accent": "Featured", "post": " Work" },
+        "subtitle": "The platform I build professionally, and a project of my own",
+        "liveDemo": "Live demo",
+        "sourceCode": "Source code",
+        "techLabel": "Tech stack used in {{title}}",
+        "liveDemoAria": "Open the live demo of {{title}} in a new tab",
+        "sourceCodeAria": "View the source code of {{title}} on GitHub in a new tab",
+        "imageAlt": "{{title}} project artwork",
+        "items": {
+            "funnelchat": {
+                "badge": "Case study",
+                "title": "WhatsApp automation platform",
+                "description": "A platform in the ManyChat category, built with the team at Funnelchat: businesses connect their WhatsApp account, organise their contacts, and let automated flows carry conversations that agents pick up from a shared inbox when a human is needed. I work across the messaging integrations, the automation flows and the interfaces agents use daily.",
+                "note": "Private, commercial codebase — happy to walk through the architecture in a conversation."
+            },
+            "aiAssistant": {
+                "badge": "Personal project",
+                "title": "AI Assistant",
+                "description": "As an AI assistant chatbot, I help you communicate better with your customers, I also give you some information about me, my skills and my projects."
+            }
+        }
+    },
+
+    "footer": {
+        "contactTitle": "Let's talk!",
+        "contactDescription": "Contact me to start your web development project and I will make your vision come true.",
+        "contactButton": "Contact",
+        "cvButton": "View CV",
+        "taglineLine1": "I learn every day.",
+        "taglineLine2": "What are you waiting for? Let's start working together",
+        "credit": "Created by Cristian Rodriguez"
+    }
+}

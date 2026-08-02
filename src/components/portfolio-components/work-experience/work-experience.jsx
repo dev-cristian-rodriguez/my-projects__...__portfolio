@@ -1,23 +1,13 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FiBriefcase } from 'react-icons/fi';
 import style from './work-experience-style.module.css';
 
-const workExperiences = [
+// Stack names are proper nouns, so they stay out of the dictionary
+const jobs = [
     {
-        id: 1,
-        title: 'Fullstack Developer',
-        company: 'Funnelchat',
-        period: 'Present',
-        summary:
-            'Funnelchat is a WhatsApp automation platform — the ManyChat category — where businesses manage their contacts, run automated conversation flows and answer customers from a shared inbox. I work across the product, from the messaging integrations up to the interfaces agents use every day.',
-        highlights: [
-            'Built WhatsApp integrations against the official Meta Cloud API and third-party providers such as Z-API, handling webhooks, message templates and delivery state.',
-            'Developed automation flows where a trigger runs through conditions and actions, so conversations continue without an agent replying to every message.',
-            'Worked on interactive chat backed by real-time events, keeping conversation state in sync across agents and clients.',
-            'Built contact management and segmentation features so automations reach a targeted audience instead of every contact.',
-            'Created reusable components and shared frontend libraries to keep the platform consistent and maintainable.',
-        ],
+        id: 'funnelchat',
         stack: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Meta Cloud API', 'Z-API'],
     },
 ];
@@ -25,6 +15,21 @@ const workExperiences = [
 export const WorkExperience = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const { t, i18n } = useTranslation();
+
+    const workExperiences = useMemo(
+        () =>
+            jobs.map(({ id, stack }) => ({
+                id,
+                stack,
+                title: t(`experience.jobs.${id}.title`),
+                company: t(`experience.jobs.${id}.company`),
+                period: t(`experience.jobs.${id}.period`),
+                summary: t(`experience.jobs.${id}.summary`),
+                highlights: t(`experience.jobs.${id}.highlights`, { returnObjects: true }),
+            })),
+        [t, i18n.resolvedLanguage]
+    );
 
     return (
         <main className={style.workExperienceSection}>
@@ -40,7 +45,7 @@ export const WorkExperience = () => {
                         <span className={style.iconWrapper}>
                             <FiBriefcase />
                         </span>
-                        Work Experience
+                        {t('experience.sectionTitle')}
                     </h1>
                 </div>
 
@@ -80,7 +85,10 @@ export const WorkExperience = () => {
                                         ))}
                                     </ul>
 
-                                    <ul className={style.stackList} aria-label="Stack used">
+                                    <ul
+                                        className={style.stackList}
+                                        aria-label={t('experience.stackLabel')}
+                                    >
                                         {experience.stack.map((item) => (
                                             <li key={item} className={style.stackTag}>
                                                 {item}

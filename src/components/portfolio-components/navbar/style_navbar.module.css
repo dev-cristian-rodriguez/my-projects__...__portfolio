@@ -32,6 +32,7 @@
 
 .menuButton:focus-visible,
 .themeToggle:focus-visible,
+.langToggle:focus-visible,
 .closeButton:focus-visible,
 .logoLink:focus-visible {
     outline: 2px solid var(--accent-primary);
@@ -83,10 +84,40 @@
     transition: all 0.3s ease;
 }
 
-.themeToggle:hover {
+.themeToggle:hover,
+.langToggle:hover {
     background: var(--bg-surface);
     border-color: var(--accent-primary);
     color: var(--accent-primary);
+}
+
+/* A text pill rather than a flag — flags name countries, not languages */
+.langToggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+/* Keeps the logo centred on mobile now that the right side holds two controls */
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
 }
 
 .subMenu {

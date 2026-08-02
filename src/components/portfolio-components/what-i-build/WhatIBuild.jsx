@@ -1,40 +1,18 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { SiWhatsapp } from 'react-icons/si';
 import { TbRouteSquare } from 'react-icons/tb';
 import { FiActivity, FiUsers } from 'react-icons/fi';
 
 import style from './style_what_i_build.module.css';
 
-const capabilities = [
-    {
-        icon: SiWhatsapp,
-        title: 'WhatsApp integrations',
-        description:
-            'Connecting messaging platforms to WhatsApp through the official Meta Cloud API and through third-party providers such as Z-API: webhooks, message templates, session handling and delivery state.',
-        tags: ['Meta Cloud API', 'Z-API', 'Webhooks'],
-    },
-    {
-        icon: TbRouteSquare,
-        title: 'Automation & flows',
-        description:
-            'Visual automation builders, where a trigger gives way to conditions and actions so that conversations continue without an agent having to respond to each message.',
-        tags: ['Flow builders', 'Triggers'],
-    },
-    {
-        icon: FiActivity,
-        title: 'Real-time conversations',
-        description:
-            'Interactive chat that stays in sync: live message events, a shared inbox several agents can work from at once, and conversation state that stays consistent across clients.',
-        tags: ['WebSockets', 'Live events'],
-    },
-    {
-        icon: FiUsers,
-        title: 'Contact management',
-        description:
-            'The data layer underneath the conversations: organising and segmenting contacts so automations can target the right audience instead of broadcasting to everyone.',
-        tags: ['Segmentation', 'Contact data', 'Bulk sending'],
-    },
+// Only the icon and the identity live here — the copy comes from the dictionary
+const capabilityIcons = [
+    { id: 'whatsapp', icon: SiWhatsapp },
+    { id: 'automation', icon: TbRouteSquare },
+    { id: 'realtime', icon: FiActivity },
+    { id: 'contacts', icon: FiUsers },
 ];
 
 const CapabilityCard = ({ capability, index, isInView }) => {
@@ -69,6 +47,19 @@ const CapabilityCard = ({ capability, index, isInView }) => {
 export function WhatIBuild() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const { t, i18n } = useTranslation();
+
+    const capabilities = useMemo(
+        () =>
+            capabilityIcons.map(({ id, icon }) => ({
+                id,
+                icon,
+                title: t(`expertise.cards.${id}.title`),
+                description: t(`expertise.cards.${id}.description`),
+                tags: t(`expertise.cards.${id}.tags`, { returnObjects: true }),
+            })),
+        [t, i18n.resolvedLanguage]
+    );
 
     return (
         <main id="expertise" ref={ref} className={style.section}>
@@ -79,20 +70,19 @@ export function WhatIBuild() {
                 transition={{ duration: 0.6 }}
             >
                 <div className={style.header}>
-                    <p className={style.eyebrow}>Domain expertise</p>
+                    <p className={style.eyebrow}>{t('expertise.eyebrow')}</p>
                     <h1 className={style.sectionTitle}>
-                        What I <span className={style.gradientText}>build</span>
+                        {t('expertise.title.pre')}
+                        <span className={style.gradientText}>{t('expertise.title.accent')}</span>
+                        {t('expertise.title.post')}
                     </h1>
-                    <p className={style.sectionSubtitle}>
-                        My day-to-day work is messaging automation over WhatsApp — the kind of
-                        platform where businesses talk to their customers at scale.
-                    </p>
+                    <p className={style.sectionSubtitle}>{t('expertise.subtitle')}</p>
                 </div>
 
                 <div className={style.grid}>
                     {capabilities.map((capability, index) => (
                         <CapabilityCard
-                            key={capability.title}
+                            key={capability.id}
                             capability={capability}
                             index={index}
                             isInView={isInView}

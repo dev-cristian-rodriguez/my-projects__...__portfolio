@@ -1,5 +1,6 @@
 import { useRef, useState, useId } from 'react';
 import { motion, AnimatePresence, useInView, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { SiMeta, SiSocketdotio } from 'react-icons/si';
 import { TbWebhook } from 'react-icons/tb';
 import style from './style_skills.module.css';
@@ -86,6 +87,8 @@ const SkillCard = ({ skill, index, isActive, stripId, onOpen, onClose, onToggle 
     // Icons are either an image URL or a react-icons component
     const IconComponent = typeof skill.icon === 'string' ? null : skill.icon;
 
+    const { t } = useTranslation();
+
     const hasServices = Boolean(skill.services?.length);
 
     const body = (
@@ -103,7 +106,9 @@ const SkillCard = ({ skill, index, isActive, stripId, onOpen, onClose, onToggle 
             </div>
             <h3 className={style.skillName}>{skill.name}</h3>
             {hasServices && (
-                <span className={style.serviceCount}>{skill.services.length} services</span>
+                <span className={style.serviceCount}>
+                    {t('skills.serviceCount', { count: skill.services.length })}
+                </span>
             )}
         </>
     );
@@ -150,10 +155,11 @@ const SkillCard = ({ skill, index, isActive, stripId, onOpen, onClose, onToggle 
     );
 };
 
-const SkillCategory = ({ title, emoji, skills, isInView, entrance, delay }) => {
+const SkillCategory = ({ id, emoji, skills, isInView, entrance, delay }) => {
     const [activeSkill, setActiveSkill] = useState(null);
     const shouldReduceMotion = useReducedMotion();
     const stripId = `${useId()}-services`;
+    const { t } = useTranslation();
 
     const close = () => setActiveSkill(null);
 
@@ -167,7 +173,7 @@ const SkillCategory = ({ title, emoji, skills, isInView, entrance, delay }) => {
             transition={{ duration: 0.6, delay }}
         >
             <h2 className={style.categoryTitle}>
-                <span className={style.categoryIcon}>{emoji}</span> {title}
+                <span className={style.categoryIcon}>{emoji}</span> {t(`skills.categories.${id}`)}
             </h2>
 
             {/* Leaving the whole group closes the strip, so moving the pointer
@@ -207,7 +213,7 @@ const SkillCategory = ({ title, emoji, skills, isInView, entrance, delay }) => {
                         >
                             <div className={style.serviceStripInner}>
                                 <p className={style.serviceStripTitle}>
-                                    {activeSkill.name} services I work with
+                                    {t('skills.serviceStripTitle', { name: activeSkill.name })}
                                 </p>
                                 <ul className={style.serviceList}>
                                     {activeSkill.services.map((service) => (
@@ -225,28 +231,32 @@ const SkillCategory = ({ title, emoji, skills, isInView, entrance, delay }) => {
     );
 };
 
+// `skillsData` deliberately stays module-scope: the open service strip is tracked by
+// object identity (`activeSkill === skill`), so rebuilding these arrays each render
+// would break it. Nothing in them needs translating — only the category titles do.
 const categories = [
     {
-        title: 'Frontend',
+        id: 'frontend',
         emoji: '🎨',
         skills: skillsData.frontend,
         entrance: { x: -30 },
         delay: 0.2,
     },
-    { title: 'Backend', emoji: '⚙️', skills: skillsData.backend, entrance: { x: 30 }, delay: 0.4 },
+    { id: 'backend', emoji: '⚙️', skills: skillsData.backend, entrance: { x: 30 }, delay: 0.4 },
     {
-        title: 'Messaging & Integrations',
+        id: 'integrations',
         emoji: '💬',
         skills: skillsData.integrations,
         entrance: { x: -30 },
         delay: 0.6,
     },
-    { title: 'Tools', emoji: '🛠️', skills: skillsData.tools, entrance: { y: 30 }, delay: 0.8 },
+    { id: 'tools', emoji: '🛠️', skills: skillsData.tools, entrance: { y: 30 }, delay: 0.8 },
 ];
 
 export function Skills() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const { t } = useTranslation();
 
     return (
         <main id="skills" ref={ref} className={style.skillsSection}>
@@ -257,13 +267,15 @@ export function Skills() {
                 transition={{ duration: 0.6 }}
             >
                 <h1 className={style.sectionTitle}>
-                    Tools &amp; <span className={style.gradientText}>technologies</span>
+                    {t('skills.title.pre')}
+                    <span className={style.gradientText}>{t('skills.title.accent')}</span>
+                    {t('skills.title.post')}
                 </h1>
             </motion.div>
 
             <div className={style.skillsContainer}>
                 {categories.map((category) => (
-                    <SkillCategory key={category.title} {...category} isInView={isInView} />
+                    <SkillCategory key={category.id} {...category} isInView={isInView} />
                 ))}
             </div>
         </main>

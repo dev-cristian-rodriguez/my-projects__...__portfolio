@@ -1,7 +1,8 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { CiMemoPad } from 'react-icons/ci';
-import { AiFillFacebook, AiFillGithub, AiFillLinkedin, AiOutlineInstagram } from 'react-icons/ai';
+import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { FiMail, FiFileText } from 'react-icons/fi';
 
 import style from './style_footer.module.css';
@@ -22,6 +23,7 @@ const socialLinks = [
 export function Footer() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const { t } = useTranslation();
 
     return (
         <main id="footer" ref={ref} className={style.footerSection}>
@@ -33,11 +35,8 @@ export function Footer() {
                 transition={{ duration: 0.6 }}
             >
                 <div className={style.contactContent}>
-                    <h1 className={style.contactTitle}>Let's talk!</h1>
-                    <p className={style.contactDescription}>
-                        Contact me to start your web development project and I will make your vision
-                        come true.
-                    </p>
+                    <h1 className={style.contactTitle}>{t('footer.contactTitle')}</h1>
+                    <p className={style.contactDescription}>{t('footer.contactDescription')}</p>
                 </div>
 
                 <div className={style.containerContactAndCvButtons}>
@@ -50,7 +49,7 @@ export function Footer() {
                         whileTap={{ scale: 0.95 }}
                     >
                         <FiMail />
-                        <span>Contact</span>
+                        <span>{t('footer.contactButton')}</span>
                     </motion.a>
 
                     <motion.a
@@ -62,7 +61,7 @@ export function Footer() {
                         whileTap={{ scale: 0.95 }}
                     >
                         <FiFileText />
-                        <span>View CV</span>
+                        <span>{t('footer.cvButton')}</span>
                     </motion.a>
                 </div>
             </motion.section>
@@ -83,7 +82,7 @@ export function Footer() {
                 </motion.div>
 
                 <p className={style.footerText}>
-                    I learn every day. <br /> What are you waiting for? Let's start working together
+                    {t('footer.taglineLine1')} <br /> {t('footer.taglineLine2')}
                 </p>
 
                 <aside className={style.containerIcons}>
@@ -110,7 +109,7 @@ export function Footer() {
                 </aside>
 
                 <p className={style.creator}>
-                    Created by Cristian Rodriguez <span>©</span> 2023 - 2026
+                    {t('footer.credit')} <span>©</span> 2023 - 2026
                 </p>
             </motion.section>
         </main>

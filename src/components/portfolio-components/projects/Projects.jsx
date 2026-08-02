@@ -1,28 +1,21 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { FiGithub, FiExternalLink, FiLock } from 'react-icons/fi';
 import style from './style_projects.module.css';
 
 // Images
 import aiAssistantChatBot from '@/assents/images/projects/ai-assistant-chat-bot.webp';
 
-const projects = [
+// Everything language-independent: identity, artwork, links and tech names
+const projectAssets = [
     {
-        id: 1,
-        badge: 'Case study',
-        title: 'WhatsApp automation platform',
+        id: 'funnelchat',
         monogram: 'FC',
-        description:
-            'A platform in the ManyChat category, built with the team at Funnelchat: businesses connect their WhatsApp account, organise their contacts, and let automated flows carry conversations that agents pick up from a shared inbox when a human is needed. I work across the messaging integrations, the automation flows and the interfaces agents use daily.',
         tech: ['Meta Cloud API', 'Z-API', 'Real-time events', 'React', 'TypeScript', 'Node.js'],
-        note: 'Private, commercial codebase — happy to walk through the architecture in a conversation.',
     },
     {
-        id: 2,
-        badge: 'Personal project',
-        title: 'AI Assistant',
-        description:
-            'As an AI assistant chatbot, I help you communicate better with your customers, I also give you some information about me, my skills and my projects.',
+        id: 'aiAssistant',
         image: aiAssistantChatBot,
         github: 'https://github.com/dev-cristian-rodriguez/personal-ai-assistant-nest',
         live: 'https://personal-ai-assistant-react.onrender.com',
@@ -31,6 +24,7 @@ const projects = [
 ];
 
 const ProjectCard = ({ project, index, isInView }) => {
+    const { t } = useTranslation();
     const hasLinks = Boolean(project.github || project.live);
 
     return (
@@ -45,7 +39,7 @@ const ProjectCard = ({ project, index, isInView }) => {
                     <img
                         className={style.projectImage}
                         src={project.image}
-                        alt={`${project.title} project artwork`}
+                        alt={t('projects.imageAlt', { title: project.title })}
                         loading="lazy"
                         decoding="async"
                     />
@@ -62,7 +56,10 @@ const ProjectCard = ({ project, index, isInView }) => {
                 <h2 className={style.projectTitle}>{project.title}</h2>
                 <p className={style.projectDescription}>{project.description}</p>
 
-                <ul className={style.techTags} aria-label={`Tech stack used in ${project.title}`}>
+                <ul
+                    className={style.techTags}
+                    aria-label={t('projects.techLabel', { title: project.title })}
+                >
                     {project.tech.map((tech) => (
                         <li key={tech} className={style.techTag}>
                             {tech}
@@ -77,24 +74,24 @@ const ProjectCard = ({ project, index, isInView }) => {
                             target="_blank"
                             rel="noreferrer"
                             className={`${style.projectLink} ${style.primaryLink}`}
-                            aria-label={`Open the live demo of ${project.title} in a new tab`}
+                            aria-label={t('projects.liveDemoAria', { title: project.title })}
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                         >
                             <FiExternalLink size={20} aria-hidden="true" />
-                            <span>Live demo</span>
+                            <span>{t('projects.liveDemo')}</span>
                         </motion.a>
                         <motion.a
                             href={project.github}
                             target="_blank"
                             rel="noreferrer"
                             className={style.projectLink}
-                            aria-label={`View the source code of ${project.title} on GitHub in a new tab`}
+                            aria-label={t('projects.sourceCodeAria', { title: project.title })}
                             whileHover={{ scale: 1.03 }}
                             whileTap={{ scale: 0.97 }}
                         >
                             <FiGithub size={20} aria-hidden="true" />
-                            <span>Source code</span>
+                            <span>{t('projects.sourceCode')}</span>
                         </motion.a>
                     </div>
                 ) : (
@@ -111,6 +108,19 @@ const ProjectCard = ({ project, index, isInView }) => {
 export function Projects() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: '-100px' });
+    const { t, i18n } = useTranslation();
+
+    const projects = useMemo(
+        () =>
+            projectAssets.map((asset) => ({
+                ...asset,
+                badge: t(`projects.items.${asset.id}.badge`),
+                title: t(`projects.items.${asset.id}.title`),
+                description: t(`projects.items.${asset.id}.description`),
+                note: t(`projects.items.${asset.id}.note`, { defaultValue: '' }),
+            })),
+        [t, i18n.resolvedLanguage]
+    );
 
     return (
         <main id="projects" ref={ref} className={style.projectsSection}>
@@ -122,11 +132,11 @@ export function Projects() {
             >
                 <div className={style.header}>
                     <h1 className={style.sectionTitle}>
-                        <span className={style.gradientText}>Featured</span> Work
+                        {t('projects.title.pre')}
+                        <span className={style.gradientText}>{t('projects.title.accent')}</span>
+                        {t('projects.title.post')}
                     </h1>
-                    <p className={style.sectionSubtitle}>
-                        The platform I build professionally, and a project of my own
-                    </p>
+                    <p className={style.sectionSubtitle}>{t('projects.subtitle')}</p>
                 </div>
 
                 <div className={style.showcase}>
