@@ -136,55 +136,6 @@
     transform: scale(1.04);
 }
 
-/* Visual panel for work with no shippable screenshot (private codebases) */
-.monogramWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    background: var(--gradient-primary);
-    position: relative;
-    overflow: hidden;
-}
-
-.monogramWrapper::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.35), transparent 60%);
-}
-
-.monogram {
-    font-family: var(--font-display);
-    font-size: clamp(3.5rem, 10vw, 5.5rem);
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    color: white;
-    position: relative;
-    z-index: 1;
-    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-}
-
-.privateNote {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.6rem;
-    margin: 1rem 0 0;
-    padding: 0.85rem 1rem;
-    border-radius: 12px;
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--text-tertiary);
-}
-
-.privateNote svg {
-    flex-shrink: 0;
-    margin-top: 0.15rem;
-}
-
 .cardContent {
     padding: 1.75rem 1.5rem 2rem;
     display: flex;
@@ -322,12 +273,6 @@
         height: 100%;
         min-height: 400px;
         padding: 2rem;
-    }
-
-    .monogramWrapper {
-        aspect-ratio: auto;
-        height: 100%;
-        min-height: 400px;
     }
 }
 

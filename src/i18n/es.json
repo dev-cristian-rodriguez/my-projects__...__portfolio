@@ -117,7 +117,7 @@
             "accent": "destacado",
             "post": ""
         },
-        "subtitle": "La plataforma que construyo profesionalmente y un proyecto propio",
+        "subtitle": "Un proyecto que construí por mi cuenta",
         "liveDemo": "Demo en vivo",
         "sourceCode": "Código fuente",
         "techLabel": "Stack usado en {{title}}",
@@ -125,12 +125,6 @@
         "sourceCodeAria": "Ver el código fuente de {{title}} en GitHub en una pestaña nueva",
         "imageAlt": "Imagen del proyecto {{title}}",
         "items": {
-            "funnelchat": {
-                "badge": "Caso de estudio",
-                "title": "Plataforma de automatización de WhatsApp",
-                "description": "Una plataforma construida con el equipo de Funnelchat: las empresas conectan su cuenta de WhatsApp, organizan sus contactos y dejan que flows automatizados lleven las conversaciones, que los agentes retoman desde un inbox compartido cuando hace falta una persona. Trabajo en las integraciones de mensajería, los flows de automatización y las interfaces que los agentes usan a diario.",
-                "note": "Código privado y comercial — con gusto recorro la arquitectura en una conversación."
-            },
             "aiAssistant": {
                 "badge": "Proyecto personal",
                 "title": "Asistente de IA",

@@ -1,2 +1,2 @@
-npm install;
-npm run build;
+pnpm install;
+pnpm run build;

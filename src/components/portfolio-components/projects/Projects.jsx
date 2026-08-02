@@ -1,7 +1,7 @@
 import { useMemo, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { FiGithub, FiExternalLink, FiLock } from 'react-icons/fi';
+import { FiGithub, FiExternalLink } from 'react-icons/fi';
 import style from './style_projects.module.css';
 
 // Images
@@ -9,11 +9,6 @@ import aiAssistantChatBot from '@/assents/images/projects/ai-assistant-chat-bot.
 
 // Everything language-independent: identity, artwork, links and tech names
 const projectAssets = [
-    {
-        id: 'funnelchat',
-        monogram: 'FC',
-        tech: ['Meta Cloud API', 'Z-API', 'Real-time events', 'React', 'TypeScript', 'Node.js'],
-    },
     {
         id: 'aiAssistant',
         image: aiAssistantChatBot,
@@ -25,7 +20,6 @@ const projectAssets = [
 
 const ProjectCard = ({ project, index, isInView }) => {
     const { t } = useTranslation();
-    const hasLinks = Boolean(project.github || project.live);
 
     return (
         <motion.article
@@ -34,21 +28,15 @@ const ProjectCard = ({ project, index, isInView }) => {
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.15 + index * 0.15 }}
         >
-            {project.image ? (
-                <div className={style.imageWrapper}>
-                    <img
-                        className={style.projectImage}
-                        src={project.image}
-                        alt={t('projects.imageAlt', { title: project.title })}
-                        loading="lazy"
-                        decoding="async"
-                    />
-                </div>
-            ) : (
-                <div className={style.monogramWrapper} aria-hidden="true">
-                    <span className={style.monogram}>{project.monogram}</span>
-                </div>
-            )}
+            <div className={style.imageWrapper}>
+                <img
+                    className={style.projectImage}
+                    src={project.image}
+                    alt={t('projects.imageAlt', { title: project.title })}
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
 
             <div className={style.cardContent}>
                 <span className={style.badge}>{project.badge}</span>
@@ -67,39 +55,32 @@ const ProjectCard = ({ project, index, isInView }) => {
                     ))}
                 </ul>
 
-                {hasLinks ? (
-                    <div className={style.cardActions}>
-                        <motion.a
-                            href={project.live}
-                            target="_blank"
-                            rel="noreferrer"
-                            className={`${style.projectLink} ${style.primaryLink}`}
-                            aria-label={t('projects.liveDemoAria', { title: project.title })}
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
-                        >
-                            <FiExternalLink size={20} aria-hidden="true" />
-                            <span>{t('projects.liveDemo')}</span>
-                        </motion.a>
-                        <motion.a
-                            href={project.github}
-                            target="_blank"
-                            rel="noreferrer"
-                            className={style.projectLink}
-                            aria-label={t('projects.sourceCodeAria', { title: project.title })}
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
-                        >
-                            <FiGithub size={20} aria-hidden="true" />
-                            <span>{t('projects.sourceCode')}</span>
-                        </motion.a>
-                    </div>
-                ) : (
-                    <p className={style.privateNote}>
-                        <FiLock size={16} aria-hidden="true" />
-                        <span>{project.note}</span>
-                    </p>
-                )}
+                <div className={style.cardActions}>
+                    <motion.a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={`${style.projectLink} ${style.primaryLink}`}
+                        aria-label={t('projects.liveDemoAria', { title: project.title })}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                    >
+                        <FiExternalLink size={20} aria-hidden="true" />
+                        <span>{t('projects.liveDemo')}</span>
+                    </motion.a>
+                    <motion.a
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={style.projectLink}
+                        aria-label={t('projects.sourceCodeAria', { title: project.title })}
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }}
+                    >
+                        <FiGithub size={20} aria-hidden="true" />
+                        <span>{t('projects.sourceCode')}</span>
+                    </motion.a>
+                </div>
             </div>
         </motion.article>
     );
@@ -117,7 +98,6 @@ export function Projects() {
                 badge: t(`projects.items.${asset.id}.badge`),
                 title: t(`projects.items.${asset.id}.title`),
                 description: t(`projects.items.${asset.id}.description`),
-                note: t(`projects.items.${asset.id}.note`, { defaultValue: '' }),
             })),
         [t, i18n.resolvedLanguage]
     );

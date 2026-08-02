@@ -1,8 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx vite:*)",
-      "mcp__claude_ai_Figma__generate_diagram",
       "Read(.env.example)",
       "Read(.env.sample)",
       "Read(.env.template)",
@@ -20,41 +18,7 @@
       "Write(.env.template)",
       "Write(**/.env.example)",
       "Write(**/.env.sample)",
-      "Write(**/.env.template)",
-      "Bash(systemctl --user start podman.socket)",
-      "Bash(fcdev init *)",
-      "Bash(fcdev add-domain *)",
-      "Bash(python3 -c ' *)",
-      "Bash(fcdev claude-setup *)",
-      "Bash(fcdev --help)",
-      "Bash(fcdev regen-env *)",
-      "Bash(podman run *)",
-      "Bash(command -v cloudflared)",
-      "Bash(command -v ngrok)",
-      "Bash(composer show *)",
-      "mcp__chrome-devtools__press_key",
-      "Bash(fcdev shell *)",
-      "Bash(git check-ignore *)",
-      "Bash(git rm *)",
-      "Bash(fcdev worktree *)",
-      "Bash(pnpm config *)",
-      "Bash(npm run *)",
-      "Bash(cat vitest.config.ts)",
-      "Bash(wait)",
-      "Bash(awk '{print $2}')",
-      "Bash(git status *)",
-      "Bash(xargs -I{} echo {})",
-      "Bash(echo \"EXIT:$?\")",
-      "Bash(xargs -I{} sed -n '1,40p' {})",
-      "Bash(timeout 60 npx playwright install chromium)",
-      "Bash(mkdir -p node_modules)",
-      "Bash(node measure.mjs)",
-      "Bash(node measure-font.mjs)",
-      "Bash(node -e ' *)",
-      "Bash(git reset *)",
-      "Bash(jobs -l)",
-      "Bash(podman compose *)",
-      "Bash(pkill -f \"fcdev test conversations\")"
+      "Write(**/.env.template)"
     ],
     "deny": [
       "Bash(npm install*)",
@@ -107,7 +71,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "notify-send 'Claude Code' 'Task completed' --icon=utilities-terminal 2>/dev/null || true"
+            "command": "notify-send 'Claude Code' 'Task is ready.' --icon=utilities-terminal 2>/dev/null || true"
           }
         ]
       }
