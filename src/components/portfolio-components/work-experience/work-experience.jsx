@@ -4,10 +4,17 @@ import { useTranslation } from 'react-i18next';
 import { FiBriefcase } from 'react-icons/fi';
 import style from './work-experience-style.module.css';
 
+// Logos
+import funnelchatLogo from '@/assents/images/experience/funnelchat-logo.png';
+
 // Stack names are proper nouns, so they stay out of the dictionary
 const jobs = [
     {
         id: 'funnelchat',
+        // The mark alone, not the wordmark — the full logo is white-on-transparent
+        // and would disappear against the light theme
+        logo: funnelchatLogo,
+        website: 'https://funnelchat.com/',
         stack: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Meta Cloud API', 'Z-API'],
     },
 ];
@@ -19,8 +26,10 @@ export const WorkExperience = () => {
 
     const workExperiences = useMemo(
         () =>
-            jobs.map(({ id, stack }) => ({
+            jobs.map(({ id, logo, website, stack }) => ({
                 id,
+                logo,
+                website,
                 stack,
                 title: t(`experience.jobs.${id}.title`),
                 company: t(`experience.jobs.${id}.company`),
@@ -69,9 +78,33 @@ export const WorkExperience = () => {
                                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                             >
                                 <div className={style.jobHeader}>
-                                    <h3 className={style.jobTitle}>{experience.title}</h3>
-                                    <h4 className={style.companyName}>{experience.company}</h4>
-                                    <span className={style.period}>{experience.period}</span>
+                                    <motion.a
+                                        href={experience.website}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className={style.logoLink}
+                                        aria-label={t('experience.visitWebsite', {
+                                            company: experience.company,
+                                        })}
+                                        whileHover={{ scale: 1.06 }}
+                                        whileTap={{ scale: 0.96 }}
+                                    >
+                                        <img
+                                            className={style.companyLogo}
+                                            src={experience.logo}
+                                            alt={t('experience.companyLogoAlt', {
+                                                company: experience.company,
+                                            })}
+                                            loading="lazy"
+                                            decoding="async"
+                                        />
+                                    </motion.a>
+
+                                    <div className={style.jobHeaderText}>
+                                        <h3 className={style.jobTitle}>{experience.title}</h3>
+                                        <h4 className={style.companyName}>{experience.company}</h4>
+                                        <span className={style.period}>{experience.period}</span>
+                                    </div>
                                 </div>
 
                                 <div className={style.jobDescription}>

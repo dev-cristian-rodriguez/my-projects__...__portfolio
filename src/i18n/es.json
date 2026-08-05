@@ -95,6 +95,8 @@
     "experience": {
         "sectionTitle": "Experiencia laboral",
         "stackLabel": "Stack utilizado",
+        "companyLogoAlt": "Logo de {{company}}",
+        "visitWebsite": "Visitar el sitio web de {{company}} en una pestaña nueva",
         "jobs": {
             "funnelchat": {
                 "title": "Desarrollador Fullstack",

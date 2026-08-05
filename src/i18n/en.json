@@ -90,6 +90,8 @@
     "experience": {
         "sectionTitle": "Work Experience",
         "stackLabel": "Stack used",
+        "companyLogoAlt": "{{company}} logo",
+        "visitWebsite": "Visit the {{company}} website in a new tab",
         "jobs": {
             "funnelchat": {
                 "title": "Fullstack Developer",

@@ -53,7 +53,7 @@ export function Footer() {
                     </motion.a>
 
                     <motion.a
-                        href="https://drive.google.com/file/d/1ei96L65hgtmP_TFmyBPTA4JYou9_8aIx/view?usp=sharing"
+                        href="https://drive.google.com/file/d/1EY6KlcmyoKlZy21RTBWkQoVsm41uEyNQ/view?usp=sharing"
                         target="_blank"
                         rel="noreferrer"
                         className={`${style.button} ${style.buttonCv}`}
