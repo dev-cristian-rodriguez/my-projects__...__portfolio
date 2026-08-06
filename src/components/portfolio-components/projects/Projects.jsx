@@ -13,7 +13,7 @@ const projectAssets = [
         id: 'aiAssistant',
         image: aiAssistantChatBot,
         github: 'https://github.com/dev-cristian-rodriguez/personal-ai-assistant-nest',
-        live: 'https://personal-ai-assistant-react.onrender.com',
+        live: 'https://personal-ai-assistant.devcristianrodriguez.lat',
         tech: ['NestJS', 'React', 'TypeScript', 'PostgreSQL', 'OpenAI API'],
     },
 ];
