@@ -15,7 +15,7 @@ const jobs = [
         // and would disappear against the light theme
         logo: funnelchatLogo,
         website: 'https://funnelchat.com/',
-        stack: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Meta Cloud API', 'Z-API'],
+        stack: ['React', 'TypeScript', 'Node.js', 'Tailwind CSS', 'Meta Cloud API'],
     },
 ];
 

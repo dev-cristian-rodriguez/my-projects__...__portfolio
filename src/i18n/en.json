@@ -51,8 +51,8 @@
         "cards": {
             "whatsapp": {
                 "title": "WhatsApp integrations",
-                "description": "Connecting messaging platforms to WhatsApp through the official Meta Cloud API and through third-party providers such as Z-API: webhooks, message templates, session handling and delivery state.",
-                "tags": ["Meta Cloud API", "Z-API", "Webhooks"]
+                "description": "Connecting messaging platforms to WhatsApp through the official Meta Cloud API: webhooks, message templates, session handling and delivery state.",
+                "tags": ["Meta Cloud API", "Webhooks"]
             },
             "automation": {
                 "title": "Automation & flows",
@@ -99,7 +99,7 @@
                 "period": "Present",
                 "summary": "Funnelchat is a WhatsApp automation platform where businesses manage their contacts, run automated conversation flows and answer customers from a shared inbox. I work across the product, from the messaging integrations up to the interfaces agents use every day.",
                 "highlights": [
-                    "Built WhatsApp integrations against the official Meta Cloud API and third-party providers such as Z-API, handling webhooks, message templates and delivery state.",
+                    "Built WhatsApp integrations against the official Meta Cloud API, handling webhooks, message templates and delivery state.",
                     "Developed automation flows where a trigger runs through conditions and actions, so conversations continue without an agent replying to every message.",
                     "Worked on interactive chat backed by real-time events, keeping conversation state in sync across agents and clients.",
                     "Built contact management and segmentation features so automations reach a targeted audience instead of every contact.",

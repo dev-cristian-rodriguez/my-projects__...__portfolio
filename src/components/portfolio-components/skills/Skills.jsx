@@ -10,7 +10,6 @@ import js from '@/assents/images/skills/icon-js.png';
 import react from '@/assents/images/skills/icon-react.png';
 import python from '@/assents/images/skills/icon-python.png';
 import express from '@/assents/images/skills/express.png';
-import zapi from '@/assents/images/skills/icon-zapi.png';
 
 const skillsData = {
     frontend: [
@@ -41,7 +40,6 @@ const skillsData = {
     // These use react-icons components because several have no public logo asset.
     integrations: [
         { name: 'WhatsApp Cloud API', icon: SiMeta, accent: '#0467DF' },
-        { name: 'Z-API', icon: zapi },
         { name: 'Webhooks', icon: TbWebhook },
         { name: 'WebSockets', icon: SiSocketdotio },
     ],

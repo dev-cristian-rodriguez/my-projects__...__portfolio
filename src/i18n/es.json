@@ -56,8 +56,8 @@
         "cards": {
             "whatsapp": {
                 "title": "Integraciones con WhatsApp",
-                "description": "Conectar plataformas de mensajería con WhatsApp a través de la Meta Cloud API oficial y de proveedores externos como Z-API: webhooks, plantillas de mensajes, manejo de sesiones y estado de entrega.",
-                "tags": ["Meta Cloud API", "Z-API", "Webhooks"]
+                "description": "Conectar plataformas de mensajería con WhatsApp a través de la Meta Cloud API oficial: webhooks, plantillas de mensajes, manejo de sesiones y estado de entrega.",
+                "tags": ["Meta Cloud API", "Webhooks"]
             },
             "automation": {
                 "title": "Automatización y flows",
@@ -104,7 +104,7 @@
                 "period": "Actualidad",
                 "summary": "Funnelchat es una plataforma de automatización de WhatsApp donde las empresas gestionan sus contactos, ejecutan flows de conversación automatizados y atienden a sus clientes desde un inbox compartido. Trabajo en todo el producto, desde las integraciones de mensajería hasta las interfaces que los agentes usan a diario.",
                 "highlights": [
-                    "Construí integraciones con WhatsApp sobre la Meta Cloud API oficial y proveedores externos como Z-API, manejando webhooks, plantillas de mensajes y estado de entrega.",
+                    "Construí integraciones con WhatsApp sobre la Meta Cloud API oficial, manejando webhooks, plantillas de mensajes y estado de entrega.",
                     "Desarrollé flows de automatización donde un disparador recorre condiciones y acciones, para que las conversaciones continúen sin que un agente responda cada mensaje.",
                     "Trabajé en el chat interactivo respaldado por eventos en tiempo real, manteniendo el estado de las conversaciones sincronizado entre agentes y clientes.",
                     "Construí funcionalidades de gestión y segmentación de contactos para que las automatizaciones lleguen a un público específico en lugar de a todos los contactos.",
